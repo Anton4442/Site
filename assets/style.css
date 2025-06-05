@@ -198,4 +198,11 @@ a:hover {
     text-align: center;
     margin-top: 20px;
 }
+        /* СТИЛЬ ДЛЯ КОНТЕЙНЕРА НОВОЇ КНОПКИ */
+        .forma-html-button-container {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease 1.15s both; /* Анімація появи */
+        }
 

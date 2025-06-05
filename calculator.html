@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор Відсотків</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="gpn.js" defer></script>
+
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --accent-color: #a8dadc;
+            --shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 1.5rem; /* Базовий розмір шрифту */
+            line-height: 1.7;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px; /* Оптимальна ширина для калькулятора */
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 1.2rem 2.25rem;
+            border-radius: 75px; 
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.5rem; 
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--dark-color);
+            transform: translateY(-4px);
+        }
+        
+        .btn-back {
+            margin-bottom: 2rem;
+            background-color: var(--secondary-color);
+        }
+         .btn-back i {
+            margin-right: 0.5em;
+        }
+
+
+        /* Стилі для калькулятора, скопійовані та адаптовані */
+        .gpn-calculator-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-size: 2.25rem;
+            text-align: center;
+        }
+        .gpn-calculator-section h3 i {
+            margin-right: 0.5em;
+            color: var(--primary-color);
+        }
+        .gpn-calculator-section h4 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--accent-color);
+        }
+        .gpn-calc-block {
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+        }
+        .gpn-calc-block:not(:last-child) {
+             border-bottom: 2px dashed var(--accent-color);
+        }
+
+        .gpn-calculator-section label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--dark-color);
+        }
+        .gpn-calculator-section input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-sizing: border-box;
+        }
+        .gpn-calculator-section .btn { /* Кнопки всередині калькулятора */
+             margin-top: 0.5rem;
+        }
+        .gpn-result {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            background-color: #e8f5e9; 
+            border-left: 5px solid #4CAF50; 
+            font-weight: bold;
+            color: #2E7D32; 
+            font-size: 1.2rem;
+            min-height: 1.5em; /* Щоб поле не "стрибало" при появі тексту */
+        }
+        .gpn-error {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            background-color: #ffebee; 
+            border-left: 5px solid var(--primary-color); 
+            font-weight: bold;
+            color: #c62828; 
+            font-size: 1.2rem;
+            min-height: 1.5em; /* Щоб поле не "стрибало" при появі тексту */
+        }
+
+        /* Адаптивність для менших екранів */
+        @media (max-width: 768px) {
+            body { font-size: 1.3rem; padding: 1rem;}
+            .container { padding: 1.5rem; margin: 1rem auto; }
+            .btn { padding: 1rem 2rem; font-size: 1.3rem; }
+            .gpn-calculator-section h3 { font-size: 1.95rem; }
+            .gpn-calculator-section h4 { font-size: 1.3rem; }
+            .gpn-calculator-section label { font-size: 1.1rem; }
+            .gpn-calculator-section input[type="number"] { font-size: 1rem; padding: 10px; }
+            .gpn-result, .gpn-error { font-size: 1.1rem; }
+        }
+         @media (max-width: 480px) {
+            .gpn-calculator-section h3 { font-size: 1.7rem; }
+            .gpn-calculator-section h4 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="btn btn-back"><i class="fas fa-arrow-left"></i> На Головну</a> 
+        <!-- Припускаю, що ваш головний файл називається index.html -->
+
+        <section class="gpn-calculator-section">
+            <h3><i class="fas fa-calculator"></i> Калькулятор Відсотків</h3>
+
+            <div class="gpn-calc-block">
+                <h4>1. Знайти P% від числа X</h4>
+                <div>
+                    <label for="gpn_num1_x">Число X:</label>
+                    <input type="number" id="gpn_num1_x" placeholder="Наприклад, 150">
+                </div>
+                <div>
+                    <label for="gpn_percent1_p">Відсоток P (%):</label>
+                    <input type="number" id="gpn_percent1_p" placeholder="Наприклад, 20">
+                </div>
+                <button onclick="runGpnCalc1()" class="btn">Розрахувати</button>
+                <div id="gpn_result1" class="gpn-result"></div>
+            </div>
+
+            <div class="gpn-calc-block">
+                <h4>2. Знайти число X, якщо Y становить P% від X</h4>
+                <div>
+                    <label for="gpn_num2_y">Число Y (частина):</label>
+                    <input type="number" id="gpn_num2_y" placeholder="Наприклад, 50">
+                </div>
+                <div>
+                    <label for="gpn_percent2_p">Відсоток P (%):</label>
+                    <input type="number" id="gpn_percent2_p" placeholder="Наприклад, 25">
+                </div>
+                <button onclick="runGpnCalc2()" class="btn">Розрахувати</button>
+                <div id="gpn_result2" class="gpn-result"></div>
+            </div>
+
+            <div class="gpn-calc-block">
+                <h4>3. Скільки % число Y становить від числа X</h4>
+                <div>
+                    <label for="gpn_num3_y">Число Y (частина):</label>
+                    <input type="number" id="gpn_num3_y" placeholder="Наприклад, 15">
+                </div>
+                <div>
+                    <label for="gpn_num3_x">Число X (ціле):</label>
+                    <input type="number" id="gpn_num3_x" placeholder="Наприклад, 60">
+                </div>
+                <button onclick="runGpnCalc3()" class="btn">Розрахувати</button>
+                <div id="gpn_result3" class="gpn-result"></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function displayGpnResult(elementId, value) {
+            const el = document.getElementById(elementId);
+            if (!el) {
+                console.error("Елемент " + elementId + " не знайдено.");
+                return;
+            }
+
+            if (typeof value === 'string' && (value.includes("Будь ласка") || value.includes("не може") || value.includes("має бути") || value.includes("Ділення") || value.includes("Помилка"))) {
+                el.className = 'gpn-error';
+                el.textContent = value;
+            } else if (typeof value === 'number') {
+                el.className = 'gpn-result';
+                if (isNaN(value)) {
+                    el.className = 'gpn-error';
+                    el.textContent = "Помилка: Некоректний результат обчислення (NaN).";
+                } else {
+                    // Показуємо до 2 знаків після коми, якщо вони є
+                    el.textContent = "Результат: " + parseFloat(value.toFixed(2)); 
+                }
+            } else {
+                el.className = 'gpn-error';
+                el.textContent = "Помилка: Невизначений результат або функція не знайдена.";
+            }
+        }
+
+        function runGpnCalc1() {
+            const numX = parseFloat(document.getElementById('gpn_num1_x').value);
+            const percentP = parseFloat(document.getElementById('gpn_percent1_p').value);
+
+            if (typeof calculatePercentOfNumber === 'function') {
+                const result = calculatePercentOfNumber(numX, percentP);
+                displayGpnResult('gpn_result1', result);
+            } else {
+                displayGpnResult('gpn_result1', "Помилка: скрипт gpn.js не завантажено або функція calculatePercentOfNumber відсутня.");
+            }
+        }
+
+        function runGpnCalc2() {
+            const numY = parseFloat(document.getElementById('gpn_num2_y').value);
+            const percentP = parseFloat(document.getElementById('gpn_percent2_p').value);
+            if (typeof calculateNumberFromPartAndPercent === 'function') {
+                const result = calculateNumberFromPartAndPercent(numY, percentP);
+                displayGpnResult('gpn_result2', result);
+            } else {
+                displayGpnResult('gpn_result2', "Помилка: скрипт gpn.js не завантажено або функція calculateNumberFromPartAndPercent відсутня.");
+            }
+        }
+
+        function runGpnCalc3() {
+            const numY = parseFloat(document.getElementById('gpn_num3_y').value);
+            const numX = parseFloat(document.getElementById('gpn_num3_x').value);
+            if (typeof calculateWhatPercentIsPartFromWhole === 'function') {
+                const result = calculateWhatPercentIsPartFromWhole(numY, numX);
+                displayGpnResult('gpn_result3', result);
+            } else {
+                displayGpnResult('gpn_result3', "Помилка: скрипт gpn.js не завантажено або функція calculateWhatPercentIsPartFromWhole відсутня.");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const gpnResultIds = ['gpn_result1', 'gpn_result2', 'gpn_result3'];
+            gpnResultIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = ''; // Очищаємо поля результатів при завантаженні
+            });
+        });
+    </script>
+</body>
+</html>

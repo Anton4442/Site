@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтерактивне опитування ПІБ - Настільний теніс</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Рекомендація: Підключіть ваш основний CSS файл сюди, якщо він є, 
+         замість копіювання стилів. Наприклад: <link rel="stylesheet" href="style.css"> 
+         Нижче наведено мінімально необхідні стилі для роботи цієї сторінки. -->
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --accent-color: #a8dadc;
+            --shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 1.5rem; /* Базовий розмір шрифту */
+            line-height: 1.7;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+            padding: 2rem; /* Додамо відступи для тіла сторінки */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Центрування вмісту */
+            justify-content: center; /* Центрування вмісту по вертикалі, якщо сторінка коротка */
+        }
+        
+        .container { /* Додамо контейнер для обмеження ширини */
+            max-width: 800px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.8); /* Напівпрозорий фон для кращої читабельності */
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 1.2rem 2.25rem;
+            border-radius: 75px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--dark-color);
+            transform: translateY(-4px);
+        }
+
+        .btn-map { /* Стиль для кнопки, як в index.html */
+            padding: 1.5rem 3rem;
+            font-size: 1.65rem;
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .btn-map i {
+            margin-right: 0.75rem;
+        }
+
+        .interactive-poll-section {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: white; /* Зробимо фон непрозорим для секції */
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            width: 100%; /* Займати всю ширину батьківського .container */
+        }
+
+        .interactive-poll-section h3 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 2.25rem; /* Узгоджуємо з h3 в index.html */
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        #startPibPollBtn {
+            margin-bottom: 1.5rem;
+        }
+
+        .result-area-integrated {
+            margin-top: 1.5rem;
+            padding: 1.2rem 1.8rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            background-color: var(--light-color);
+            min-height: 70px;
+            text-align: left;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .result-area-integrated .result-area-title {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.6rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .result-area-integrated .result-area-title::before {
+            content: "⠿";
+            display: inline-block;
+            transform: rotate(90deg);
+            margin-right: 0.7em;
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            line-height: 1;
+        }
+
+        .result-message-integrated {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            line-height: 1.65;
+            padding-top: 0.3rem;
+        }
+
+        /* Навігаційна кнопка "Назад" */
+        .back-button-container {
+            margin-top: 2rem;
+            text-align: center;
+        }
+         .back-button-container .btn {
+            background-color: var(--secondary-color); /* Інший колір для кнопки "Назад" */
+            font-size: 1.2rem;
+            padding: 0.8rem 1.8rem;
+        }
+        .back-button-container .btn:hover {
+            background-color: var(--primary-color);
+        }
+
+
+        @media (max-width: 768px) {
+            body { font-size: 1.3rem; }
+            .container { padding: 1.5rem; }
+            .interactive-poll-section { padding: 2rem; }
+            .interactive-poll-section h3 { font-size: 1.95rem; }
+            .result-area-integrated .result-area-title { font-size: 1.4rem; }
+            .result-message-integrated { font-size: 1.15rem; }
+            .btn-map { padding: 1.2rem 2.5rem; font-size: 1.5rem; }
+        }
+         @media (max-width: 480px) {
+            .interactive-poll-section h3 { font-size: 1.7rem; }
+            .btn-map { padding: 1rem 2rem; font-size: 1.3rem; }
+             .result-area-integrated .result-area-title { font-size: 1.3rem; }
+            .result-message-integrated { font-size: 1.05rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="interactive-poll-section">
+            <h3>Інтерактивне опитування (ПІБ)</h3>
+            <div class="poll-container-integrated">
+                <button class="btn btn-map" id="startPibPollBtn">
+                    <i class="fas fa-play-circle"></i> Розпочати опитування
+                </button>
+                <div class="result-area-integrated" id="pibResultArea">
+                    <h4 class="result-area-title">Результат опитування:</h4>
+                    <p class="result-message-integrated" id="pibResultMessage"></p>
+                </div>
+            </div>
+        </section>
+        <div class="back-button-container">
+            <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> На Головну</a>
+        </div>
+    </div>
+
+    <script>
+        const startPibPollBtn = document.getElementById('startPibPollBtn');
+        const pibResultMessageEl = document.getElementById('pibResultMessage');
+
+        if (startPibPollBtn) {
+            startPibPollBtn.addEventListener('click', function() {
+                if (!pibResultMessageEl) return;
+                
+                let firstName = prompt("Введіть своє ім'я:\n(Наприклад - Іван)", "");
+                if (firstName === null || firstName.trim() === "") { 
+                    pibResultMessageEl.textContent = "Дія була відмінена або ім'я не введено."; 
+                    return; 
+                }
+                
+                let lastName = prompt("Введіть своє прізвище:\n(Наприклад - Іванченко)", "");
+                if (lastName === null || lastName.trim() === "") { 
+                    pibResultMessageEl.textContent = "Дія була відмінена або прізвище не введено."; 
+                    return; 
+                }
+                
+                let patronymic = prompt("Як Вас по батькові?\n(Наприклад - Іванович)", "");
+                if (patronymic === null || patronymic.trim() === "") { 
+                    pibResultMessageEl.textContent = "Дія була відмінена або по батькові не введено."; 
+                    return; 
+                }
+                
+                pibResultMessageEl.textContent = `Привіт, ${lastName.trim()} ${firstName.trim()} ${patronymic.trim()}! Радий тебе бачити на цій сторінці!`;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (pibResultMessageEl) {
+                pibResultMessageEl.textContent = 'Натисніть кнопку "Розпочати опитування", щоб ввести свої дані.';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест: Знання з Настільного Тенісу</title>
+    
+    <style>
+        /* Скопійовані необхідні стилі з головної сторінки */
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --accent-color: #a8dadc;
+            --shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        .btn { display: inline-block; background: var(--primary-color); color: white; padding: 1.2rem 2.25rem; border-radius: 75px; text-decoration: none; font-weight: 600; font-size: 1.5rem; transition: var(--transition); border: none; cursor: pointer; text-align: center; }
+        .btn:hover { background: var(--dark-color); }
+        
+        /* Стилі для блоку з тестом */
+        #quiz-container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            text-align: left;
+        }
+        #quiz-title { color: var(--secondary-color); margin-bottom: 2rem; font-size: 2.5rem; text-align: center; }
+        #question-area { margin-bottom: 2rem; }
+        #question-text { font-size: 1.8rem; color: var(--dark-color); margin-bottom: 1.5rem; line-height: 1.6; font-weight: bold; }
+        #options-container .option-label { display: block; background-color: var(--light-color); padding: 1rem; margin: 0.7rem 0; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; border: 2px solid var(--accent-color); font-size: 1.4rem; color: var(--dark-color); }
+        #options-container .option-label:hover { background-color: var(--accent-color); border-color: var(--secondary-color); }
+        #options-container input[type="radio"] { margin-right: 10px; transform: scale(1.2); }
+        #quiz-container .btn { margin-top: 1.5rem; display: block; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; }
+        #result-area { text-align: center; }
+        #result-area h4 { font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem; }
+        #score-text { font-size: 1.6rem; color: var(--dark-color); margin-bottom: 1.5rem; font-weight: bold; }
+        .back-button { margin-top: 1rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Цей блок з тестом тепер є основним вмістом сторінки -->
+        <div id="quiz-container">
+            <h3 id="quiz-title">Тест: Знання з Настільного Тенісу</h3>
+            <div id="question-area">
+                <p id="question-text"></p>
+                <div id="options-container"></div>
+            </div>
+            <button type="button" id="nextQuestionBtn" class="btn">Наступне питання</button>
+            <div id="result-area" style="display: none;">
+                <h4>Ваш результат:</h4>
+                <p id="score-text"></p>
+                <button type="button" id="restartQuizBtn" class="btn">Спробувати ще раз</button>
+            </div>
+            <div class="back-button">
+                 <a href="index.html" class="btn" style="background-color: var(--secondary-color);">Повернутися на головну</a>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // --- JavaScript для тесту ---
+    const quizData = [
+        { question: "Як неофіційно називають настільний теніс?", options: ["Ракетбол", "Пінг-понг", "Сквош", "Бадмінтон"], answer: "Пінг-понг" },
+        { question: "Яка стандартна висота сітки над ігровою поверхнею столу для настільного тенісу?", options: ["10.5 см", "15.25 см", "12.75 см", "20.0 см"], answer: "15.25 см" },
+        { question: "До скількох очок грається стандартна партія (гейм) в сучасному настільному тенісі?", options: ["7 очок", "11 очок", "15 очок", "21 очко"], answer: "11 очок" },
+        { question: "Який з цих кольорів м'яча для настільного тенісу НЕ є стандартним для офіційних змагань?", options: ["Білий", "Помаранчевий", "Жовтий", "Зелений"], answer: "Зелений" },
+        { question: "Як називається удар, при якому м'ячу надається сильне верхнє обертання?", options: ["Блок", "Підрізка", "Топ-спін", "Смеш"], answer: "Топ-спін" },
+        { question: "З якого матеріалу переважно виготовляли м'ячі для настільного тенісу до 2014-2015 років?", options: ["Гума", "Деревина", "Корк", "Целулоїд"], answer: "Целулоїд" }
+    ];
+
+    const questionTextEl = document.getElementById('question-text');
+    const optionsContainerEl = document.getElementById('options-container');
+    const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+    const resultAreaEl = document.getElementById('result-area');
+    const scoreTextEl = document.getElementById('score-text');
+    const restartQuizBtn = document.getElementById('restartQuizBtn');
+    const questionAreaEl = document.getElementById('question-area');
+
+    let currentQuestionIndex, score;
+
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        resultAreaEl.style.display = 'none';
+        questionAreaEl.style.display = 'block';
+        nextQuestionBtn.style.display = 'block';
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const currentQuestion = quizData[currentQuestionIndex];
+        questionTextEl.textContent = `Питання ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+        optionsContainerEl.innerHTML = '';
+        currentQuestion.options.forEach((option, index) => {
+            const optionId = `option${index}`;
+            const label = document.createElement('label');
+            label.htmlFor = optionId;
+            label.className = 'option-label';
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'quizOption';
+            radio.id = optionId;
+            radio.value = option;
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(` ${option}`));
+            optionsContainerEl.appendChild(label);
+        });
+        nextQuestionBtn.textContent = (currentQuestionIndex === quizData.length - 1) ? 'Завершити тест' : 'Наступне питання';
+    }
+
+    function handleNextQuestion() {
+        const selectedOptionInput = document.querySelector('input[name="quizOption"]:checked');
+        if (!selectedOptionInput) {
+            alert('Будь ласка, оберіть варіант відповіді.');
+            return;
+        }
+        if (selectedOptionInput.value === quizData[currentQuestionIndex].answer) {
+            score++;
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        questionAreaEl.style.display = 'none';
+        nextQuestionBtn.style.display = 'none';
+        resultAreaEl.style.display = 'block';
+        scoreTextEl.textContent = `Ви правильно відповіли на ${score} з ${quizData.length} питань.`;
+    }
+
+    // Додаємо обробники подій
+    nextQuestionBtn.addEventListener('click', handleNextQuestion);
+    restartQuizBtn.addEventListener('click', startQuiz); // Кнопка "Спробувати ще раз" просто перезапускає тест
+
+    // Запускаємо тест автоматично, коли сторінка завантажилась
+    document.addEventListener('DOMContentLoaded', startQuiz);
+</script>
+
+</body>
+</html>

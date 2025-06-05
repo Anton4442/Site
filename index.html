@@ -9,9 +9,9 @@
     <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="gpn.js" defer></script> <!-- Підключення gpn.js -->
 
     <style>
+        /* Всі ваші стилі залишаються без змін */
         :root {
             --primary-color: #e63946;
             --secondary-color: #1d3557;
@@ -30,7 +30,7 @@
 
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #f9f9f9;
+            background-color: #f9f9f9; /* Fallback background */
             color: #333;
             font-size: 1.5rem;
             line-height: 1.7;
@@ -39,7 +39,7 @@
         }
 
         .container {
-            max-width: 1400px; 
+            max-width: 1400px;
             margin: 0 auto;
             padding: 3rem;
         }
@@ -77,14 +77,14 @@
             color: var(--secondary-color);
             font-weight: 600;
         }
-        
+
         header h3 {
             margin-bottom: 3rem;
         }
 
         .menu-list {
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 3rem;
             list-style: none;
             margin-bottom: 4.5rem;
@@ -92,13 +92,13 @@
 
         .menu-list li {
             background: white;
-            border-radius: 18px; 
+            border-radius: 18px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            display: flex; 
-            flex-direction: column; 
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-list li:hover {
@@ -111,21 +111,21 @@
             flex-direction: column;
             text-decoration: none;
             color: var(--dark-color);
-            height: 100%; 
+            height: 100%;
             width: 100%;
         }
 
         .menu-list img {
             width: 100%;
-            aspect-ratio: 16/9; 
-            object-fit: cover; 
+            aspect-ratio: 16/9;
+            object-fit: cover;
             border-bottom: 4px solid var(--primary-color);
         }
 
         .menu-list .content {
             padding: 2.25rem;
             position: relative;
-            flex: 1; 
+            flex: 1;
             display: flex;
             flex-direction: column;
         }
@@ -152,12 +152,12 @@
         }
 
         .menu-list p {
-            color: #555; 
+            color: #555;
             margin-bottom: 2.25rem;
             position: relative;
             z-index: 2;
             flex-grow: 1;
-            font-size: 1.4rem; 
+            font-size: 1.4rem;
         }
 
         .btn {
@@ -165,16 +165,16 @@
             background: var(--primary-color);
             color: white;
             padding: 1.2rem 2.25rem;
-            border-radius: 75px; 
+            border-radius: 75px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.5rem; 
+            font-size: 1.5rem;
             transition: var(--transition);
             border: none;
             cursor: pointer;
             position: relative;
             z-index: 2;
-            align-self: center;
+            align-self: center; 
             text-align: center;
         }
 
@@ -182,6 +182,12 @@
             background: var(--dark-color);
             transform: translateY(-4px);
         }
+
+        .menu-list li .btn {
+            padding: 0.9rem 1.9rem;
+            font-size: 1.3rem;
+        }
+
         .video-section,
         .audio-section {
             text-align: center;
@@ -189,7 +195,7 @@
             margin-bottom: 4.5rem;
             padding: 3rem;
             background-color: white;
-            border-radius: 18px; 
+            border-radius: 18px;
             box-shadow: var(--shadow);
             animation: fadeIn 1s ease 0.7s both;
         }
@@ -198,15 +204,15 @@
         .audio-section h3 {
             margin-bottom: 2.25rem;
         }
-        
+
         .youtube-video-container {
             position: relative;
             width: 100%;
-            padding-top: 56.25%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
             overflow: hidden;
-            border-radius: 12px; 
+            border-radius: 12px;
             box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            margin: 0 auto 15px auto; 
+            margin: 0 auto 15px auto;
         }
 
         .youtube-video-container iframe {
@@ -221,7 +227,7 @@
         .video-source-link {
             text-align: center;
             margin-top: 22px;
-            font-size: 1.3rem; 
+            font-size: 1.3rem;
         }
 
         .video-source-link a {
@@ -234,46 +240,65 @@
             color: var(--primary-color);
             text-decoration: none;
         }
-        
+
         .custom-audio-player-wrapper {
-            display: block; 
-            background-color: #E9E9E9; 
-            border-radius: 75px; 
-            padding: 15px 30px; 
+            display: block;
+            background-color: #E9E9E9;
+            border-radius: 75px;
+            padding: 15px 30px;
             box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            margin: 1.5rem auto; 
-            min-width: 420px; 
-            width: 100%; 
-            max-width: 800px; 
+            margin: 1.5rem auto;
+            min-width: 420px;
+            width: 100%;
+            max-width: 800px;
         }
 
         .custom-audio-player-wrapper audio {
+            display: block;
+            width: 100%;
+            outline: none;
+        }
+
+        .custom-audio-player-wrapper audio::-webkit-media-controls-panel {
+            background-color: #E9E9E9;
+            color: #333;
+            border-radius: 75px;
+        }
+        
+        .btn-map {
+            padding: 1.5rem 3rem;
+            font-size: 1.65rem;
+            animation: fadeIn 1s ease 0.8s both;
             display: block; 
             width: 100%; 
-            outline: none; 
-        }
-        
-        .custom-audio-player-wrapper audio::-webkit-media-controls-panel {
-            background-color: #E9E9E9; 
-            color: #333; 
-            border-radius: 75px; 
+            max-width: 500px; 
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
         }
 
-        .map-button-container {
-            text-align: center; 
-            margin-top: 3rem; 
-            margin-bottom: 4.5rem; 
-        }
-
-        .btn-map { 
-            padding: 1.5rem 3rem; 
-            font-size: 1.65rem;
-        }
-        
-        .btn-map i { 
+        .btn-map i {
             margin-right: 0.75rem;
         }
+        
+        .action-buttons-layout {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-around; 
+            align-items: flex-start; 
+            gap: 2rem; 
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
 
+        .action-buttons-layout > div { 
+            flex-grow: 0;  
+            flex-shrink: 1; 
+            flex-basis: 320px; 
+            margin: 0; 
+            text-align: center; 
+        }
+        
         footer {
             text-align: center;
             margin-top: 6rem;
@@ -297,242 +322,21 @@
 
         .social-links a:hover {
             color: var(--primary-color);
-            transform: translateY(-4px); 
+            transform: translateY(-4px);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); } 
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .menu-list li:nth-child(1) { animation: fadeIn 0.6s ease 0.1s both; }
         .menu-list li:nth-child(2) { animation: fadeIn 0.6s ease 0.3s both; }
         .menu-list li:nth-child(3) { animation: fadeIn 0.6s ease 0.5s both; }
-        
-        .quiz-start-container {
-            text-align: center;
-            margin: 3rem 0;
-            animation: fadeIn 1s ease 0.9s both; 
-        }
-
-        #quiz-container {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-            text-align: left; 
-            animation: fadeIn 0.5s ease;
-        }
-
-        #quiz-title {
-            color: var(--secondary-color);
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            text-align: center; 
-        }
-
-        #question-area {
-            margin-bottom: 2rem;
-        }
-
-        #question-text {
-            font-size: 1.8rem;
-            color: var(--dark-color);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            font-weight: bold;
-        }
-
-        #options-container .option-label {
-            display: block;
-            background-color: var(--light-color);
-            padding: 1rem;
-            margin: 0.7rem 0; 
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-            border: 2px solid var(--accent-color);
-            font-size: 1.4rem;
-            color: var(--dark-color);
-        }
-
-        #options-container .option-label:hover {
-            background-color: var(--accent-color);
-            border-color: var(--secondary-color);
-        }
-
-        #options-container input[type="radio"] {
-            margin-right: 10px;
-            vertical-align: middle;
-            transform: scale(1.2); 
-        }
-        
-        #quiz-container .btn { 
-            margin-top: 1.5rem;
-            display: block; 
-            width: 100%;
-            max-width: 300px; 
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #result-area { 
-            text-align: center; 
-        }
-        #result-area h4 {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        #score-text {
-            font-size: 1.6rem;
-            color: var(--dark-color);
-            margin-bottom: 1.5rem;
-            font-weight: bold;
-        }
-        .interactive-poll-section {
-            text-align: center;
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-            padding: 2.5rem;
-            background-color: white; 
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            animation: fadeIn 1s ease 1s both; 
-        }
-
-        .interactive-poll-section h3 {
-            margin-bottom: 2rem;
-            color: var(--secondary-color);
-        }
-        
-        #startPibPollBtn { 
-            margin-bottom: 1.5rem;
-        }
-
-        .result-area-integrated {
-            margin-top: 1.5rem;
-            padding: 1.2rem 1.8rem;
-            border: 2px solid var(--accent-color); 
-            border-radius: 10px;
-            background-color: var(--light-color); 
-            min-height: 70px;
-            text-align: left; 
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .result-area-integrated .result-area-title {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1.6rem; 
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.6rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-        }
-
-        .result-area-integrated .result-area-title::before {
-            content: "⠿"; 
-            display: inline-block;
-            transform: rotate(90deg); 
-            margin-right: 0.7em;
-            font-size: 1.2em;
-            color: var(--secondary-color);
-            line-height: 1; 
-        }
-
-        .result-message-integrated {
-            font-family: 'Times New Roman', Times, serif; 
-            font-size: 1.3rem; 
-            color: var(--dark-color);
-            line-height: 1.65;
-            padding-top: 0.3rem; 
-        }
-
-        .gpn-calculator-section {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-            animation: fadeIn 1s ease 0.8s both;
-        }
-        .gpn-calculator-section h3 {
-            color: var(--secondary-color);
-            margin-bottom: 2rem;
-            font-size: 2.25rem;
-            text-align: center;
-        }
-        .gpn-calculator-section h3 i {
-            margin-right: 0.5em;
-            color: var(--primary-color);
-        }
-        .gpn-calculator-section h4 {
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--accent-color);
-        }
-        .gpn-calc-block {
-            margin-bottom: 2rem; 
-            padding-bottom: 1.5rem;
-        }
-        .gpn-calc-block:not(:last-child) {
-             border-bottom: 2px dashed var(--accent-color);
-        }
-
-        .gpn-calculator-section label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--dark-color);
-        }
-        .gpn-calculator-section input[type="number"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: 1px solid var(--accent-color);
-            border-radius: 8px;
-            font-size: 1.1rem;
-            box-sizing: border-box;
-        }
-        .gpn-calculator-section .btn {
-             margin-top: 0.5rem;
-        }
-        .gpn-result {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            border-radius: 6px;
-            background-color: #e8f5e9; 
-            border-left: 5px solid #4CAF50; 
-            font-weight: bold;
-            color: #2E7D32; 
-            font-size: 1.2rem;
-        }
-        .gpn-error {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            border-radius: 6px;
-            background-color: #ffebee; 
-            border-left: 5px solid var(--primary-color); 
-            font-weight: bold;
-            color: #c62828; 
-            font-size: 1.2rem;
-        }
 
         @media (max-width: 992px) {
              .menu-list {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
         }
 
@@ -540,48 +344,8 @@
             body { font-size: 1.3rem; }
             .container { padding: 2rem; }
             h1 { font-size: 3.3rem; }
-            h1::after { height: 4px; }
             h3 { font-size: 1.95rem; }
-            header h3 { margin-bottom: 2rem; }
             .menu-list { grid-template-columns: 1fr; }
-            .menu-list p { font-size: 1.3rem; }
-            .btn { padding: 1rem 2rem; font-size: 1.3rem; }
-            .btn-map { padding: 1.2rem 2.5rem; font-size: 1.5rem; }
-            .video-section, .audio-section, #quiz-container, .interactive-poll-section, .gpn-calculator-section { 
-                padding: 2rem; margin-top: 3rem; margin-bottom: 3rem;
-            }
-            #quiz-title { font-size: 2rem; }
-            #question-text { font-size: 1.5rem; }
-            #options-container .option-label { font-size: 1.2rem; padding: 0.8rem; }
-            #score-text, #result-area h4 { font-size: 1.4rem; }
-            .interactive-poll-section h3 { font-size: 1.8rem; }
-            .result-area-integrated .result-area-title { font-size: 1.4rem; }
-            .result-message-integrated { font-size: 1.15rem; }
-            .gpn-calculator-section h3 { font-size: 1.95rem; }
-            .gpn-calculator-section h4 { font-size: 1.3rem; }
-            .gpn-calculator-section label { font-size: 1.1rem; }
-            .gpn-calculator-section input[type="number"] { font-size: 1rem; padding: 10px; }
-            .gpn-result, .gpn-error { font-size: 1.1rem; }
-            .custom-audio-player-wrapper { min-width: 320px; padding: 12px 22px; }
-            footer { font-size: 1.2rem; }
-            .social-links a { font-size: 2rem; }
-        }
-        @media (max-width: 480px) {
-            h1 { font-size: 2.8rem; }
-            h1::after { width: 100px; height: 3px; bottom: -12px; }
-            h3 { font-size: 1.7rem; }
-            .menu-list { grid-template-columns: 1fr; }
-            .custom-audio-player-wrapper { min-width: auto; width: 95%; padding: 10px 15px; }
-            .btn-map i { margin-right: 0.5rem; }
-            .btn-map { padding: 1rem 2rem; font-size: 1.3rem; }
-            #quiz-title { font-size: 1.8rem; }
-            #question-text { font-size: 1.3rem; }
-            #options-container .option-label { font-size: 1.1rem; }
-            .interactive-poll-section h3 { font-size: 1.6rem; } 
-            .result-area-integrated .result-area-title { font-size: 1.3rem; }
-            .result-message-integrated { font-size: 1.05rem; }
-            .gpn-calculator-section h3 { font-size: 1.7rem; }
-            .gpn-calculator-section h4 { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -597,313 +361,139 @@
             <h3>Оберіть розділ для вивчення:</h3>
         </header>
 
-        <ul class="menu-list">
-            <li>
-                <a href="history.html" title="Дізнатися про історію настільного тенісу">
-                    <img src="./images/2.png" alt="Історія настільного тенісу">
-                    <div class="content">
-                        <h2>Історія</h2>
-                        <p>Дізнайтесь як виник настільний теніс та як він розвивався протягом століть</p>
-                        <span class="btn">Детальніше</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="rules.html" title="Ознайомитися з правилами гри">
-                    <img src="./images//4.png" alt="Правила гри в настільний теніс">
-                    <div class="content">
-                        <h2>Правила гри</h2>
-                        <p>Ознайомтесь з основними правилами та нюансами сучасного настільного тенісу</p>
-                        <span class="btn">Детальніше</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="equipment.html" title="Переглянути обладнання для гри">
-                    <img src="./images/5.png" alt="Обладнання для настільного тенісу">
-                    <div class="content">
-                        <h2>Обладнання</h2>
-                        <p>Вибір ракетки, м'яча, столу та іншого спорядження для гри</p>
-                        <span class="btn">Детальніше</span>
-                    </div>
-                </a>
-            </li>
-        </ul>
-  
-        <section class="video-section">
-            <h3>Відео про настільний теніс</h3>
-            <div class="youtube-video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/yUVOHKNI3Pk" 
-                    title="Відео про настільний теніс від Ariel Sport" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p class="video-source-link">
-                <a href="https://www.youtube.com/watch?v=yUVOHKNI3Pk" target="_blank" rel="noopener noreferrer">
-                    Переглянути оригінал на YouTube
-                </a>
-            </p>
-        </section>
+        <main>
+            <ul class="menu-list">
+                <li>
+                    <a href="history.html" title="Дізнатися про історію настільного тенісу">
+                        <img src="./images/2.png" alt="Історія настільного тенісу">
+                        <div class="content">
+                            <h2>Історія</h2>
+                            <p>Дізнайтесь як виник настільний теніс та як він розвивався протягом століть</p>
+                            <span class="btn">Детальніше</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="rules.html" title="Ознайомитися з правилами гри">
+                        <img src="./images/4.png" alt="Правила гри в настільний теніс">
+                        <div class="content">
+                            <h2>Правила гри</h2>
+                            <p>Ознайомтесь з основними правилами та нюансами сучасного настільного тенісу</p>
+                            <span class="btn">Детальніше</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="equipment.html" title="Переглянути обладнання для гри">
+                        <img src="./images/5.png" alt="Обладнання для настільного тенісу">
+                        <div class="content">
+                            <h2>Обладнання</h2>
+                            <p>Вибір ракетки, м'яча, столу та іншого спорядження для гри</p>
+                            <span class="btn">Детальніше</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
 
-        <section class="audio-section">
-            <h3>Аудіоматеріал</h3>
-            <div class="custom-audio-player-wrapper">
-                <audio controls>
-                    <source src="./images/Музика.mp3" type="audio/mpeg">
-                    Ваш браузер не підтримує аудіо елемент.
-                </audio>
-            </div>
-        </section>
-
-        <section class="gpn-calculator-section">
-            <h3><i class="fas fa-calculator"></i> Калькулятор Відсотків</h3>
-
-            <div class="gpn-calc-block">
-                <h4>1. Знайти P% від числа X</h4>
-                <div>
-                    <label for="gpn_num1_x">Число X:</label>
-                    <input type="number" id="gpn_num1_x" placeholder="Наприклад, 150">
+            <section class="video-section">
+                <h3>Відео про настільний теніс</h3>
+                <div class="youtube-video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/yUVOHKNI3Pk"
+                        title="Відео про настільний теніс від Ariel Sport"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <div>
-                    <label for="gpn_percent1_p">Відсоток P (%):</label>
-                    <input type="number" id="gpn_percent1_p" placeholder="Наприклад, 20">
-                </div>
-                <button onclick="runGpnCalc1()" class="btn">Розрахувати</button>
-                <div id="gpn_result1" class="gpn-result"></div>
-            </div>
+                <p class="video-source-link">
+                    <a href="https://www.youtube.com/watch?v=yUVOHKNI3Pk" target="_blank" rel="noopener noreferrer">
+                        Переглянути оригінал на YouTube
+                    </a>
+                </p>
+            </section>
 
-            <div class="gpn-calc-block">
-                <h4>2. Знайти число X, якщо Y становить P% від X</h4>
-                <div>
-                    <label for="gpn_num2_y">Число Y (частина):</label>
-                    <input type="number" id="gpn_num2_y" placeholder="Наприклад, 50">
+            <section class="audio-section">
+                <h3>Аудіоматеріал</h3>
+                <div class="custom-audio-player-wrapper">
+                    <audio controls>
+                        <source src="./images/Музика.mp3" type="audio/mpeg">
+                        Ваш браузер не підтримує аудіо елемент.
+                    </audio>
                 </div>
-                <div>
-                    <label for="gpn_percent2_p">Відсоток P (%):</label>
-                    <input type="number" id="gpn_percent2_p" placeholder="Наприклад, 25">
+            </section>
+
+            <div class="action-buttons-layout">
+                <div class="calculator-button-container">
+                    <a href="calculator.html" class="btn btn-map" title="Відкрити калькулятор відсотків">
+                        <i class="fas fa-calculator"></i> Калькулятор Відсотків
+                    </a>
                 </div>
-                <button onclick="runGpnCalc2()" class="btn">Розрахувати</button>
-                <div id="gpn_result2" class="gpn-result"></div>
-            </div>
-
-            <div class="gpn-calc-block">
-                <h4>3. Скільки % число Y становить від числа X</h4>
-                <div>
-                    <label for="gpn_num3_y">Число Y (частина):</label>
-                    <input type="number" id="gpn_num3_y" placeholder="Наприклад, 15">
+                
+                <div class="quiz-start-container">
+                    <a href="quiz.html" class="btn btn-map">
+                        <i class="fas fa-clipboard-list"></i>
+                        Пройти тест: Перевір свої знання!
+                    </a>
                 </div>
-                <div>
-                    <label for="gpn_num3_x">Число X (ціле):</label>
-                    <input type="number" id="gpn_num3_x" placeholder="Наприклад, 60">
+                
+                <div class="map-button-container">
+                    <a href="map.html" class="btn btn-map" title="Знайти зали для настільного тенісу">
+                        <i class="fas fa-map-marker-alt"></i> Інтерактивна карта україни
+                    </a>
                 </div>
-                <button onclick="runGpnCalc3()" class="btn">Розрахувати</button>
-                <div id="gpn_result3" class="gpn-result"></div>
-            </div>
-        </section>
- 
-        <div class="quiz-start-container">
-            <button id="startQuizBtn" class="btn btn-map"> 
-                <i class="fas fa-clipboard-list"></i> 
-                Пройти тест: Перевір свої знання!
-            </button>
-        </div>
-
-        <div id="quiz-container" style="display: none;">
-            <h3 id="quiz-title">Тест: Знання з Настільного Тенісу</h3>
-            <div id="question-area">
-                <p id="question-text"></p>
-                <div id="options-container"></div>
-            </div>
-            <button id="nextQuestionBtn" class="btn">Наступне питання</button>
-            <div id="result-area" style="display: none;">
-                <h4>Ваш результат:</h4>
-                <p id="score-text"></p>
-                <button id="restartQuizBtn" class="btn">Спробувати ще раз</button>
-            </div>
-        </div>
-
-        <div class="map-button-container">
-            <a href="map.html" class="btn btn-map" title="Знайти зали для настільного тенісу">
-                <i class="fas fa-map-marker-alt"></i> Інтерактивна карта україни
-            </a>
-        </div>
-
-        <section class="interactive-poll-section">
-            <h3>Інтерактивне опитування (ПІБ)</h3>
-            <div class="poll-container-integrated">
-                <button class="btn btn-map" id="startPibPollBtn">Розпочати опитування</button>
-                <div class="result-area-integrated" id="pibResultArea">
-                    <h4 class="result-area-title">Результат опитування:</h4>
-                    <p class="result-message-integrated" id="pibResultMessage"></p>
+                <div class="user-form-button-container">
+                    <a href="Forma.html" class="btn btn-map" title="Відкрити форму користувача">
+                        <i class="fas fa-id-card"></i> Форма Користувача
+                    </a>
+                </div>
+                <div class="pib-poll-link-container">
+                    <a href="pib_poll.html" class="btn btn-map" title="Пройти інтерактивне опитування ПІБ">
+                        <i class="fas fa-user-edit"></i> Інтерактивне Опитування (ПІБ)
+                    </a>
                 </div>
             </div>
-        </section>
+        </main>
 
         <footer>
-            <p>© 2023 Все про Настільний Теніс. Всі права захищено.</p>
-            <div class="social-links"></div>
+            <!-- ВИПРАВЛЕНО: Замість document.write, використовуємо span з id -->
+            <p>© <span id="copyright-year"></span> Все про Настільний Теніс. Всі права захищено.</p>
+            <div class="social-links">
+            </div>
         </footer>
     </div>
-
-<script>
-    // Код для Тесту та Опитування ПІБ (залишено без змін)
-    const quizData = [
-        { question: "Як неофіційно називають настільний теніс?", options: ["Ракетбол", "Пінг-понг", "Сквош", "Бадмінтон"], answer: "Пінг-понг" },
-        { question: "Яка стандартна висота сітки над ігровою поверхнею столу для настільного тенісу?", options: ["10.5 см", "15.25 см", "12.75 см", "20.0 см"], answer: "15.25 см" },
-        { question: "До скількох очок грається стандартна партія (гейм) в сучасному настільному тенісі (за умови, що немає рахунку 10:10)?", options: ["7 очок", "11 очок", "15 очок", "21 очко"], answer: "11 очок" },
-        { question: "Який з цих кольорів м'яча для настільного тенісу НЕ є стандартним для офіційних змагань?", options: ["Білий", "Помаранчевий", "Жовтий", "Зелений"], answer: "Зелений" },
-        { question: "Як називається удар, при якому м'ячу надається сильне верхнє обертання, щоб він летів по дузі та швидко опускався?", options: ["Блок", "Підрізка", "Топ-спін", "Смеш (прямий удар)"], answer: "Топ-спін" },
-        { question: "З якого матеріалу переважно виготовляли м'ячі для настільного тенісу до 2014-2015 років, поки не перейшли на пластик?", options: ["Гума", "Деревина", "Корк", "Целулоїд"], answer: "Целулоїд" }
-    ];
-    const quizContainer = document.getElementById('quiz-container');
-    const startQuizBtn = document.getElementById('startQuizBtn');
-    const questionTextEl = document.getElementById('question-text');
-    const optionsContainerEl = document.getElementById('options-container');
-    const nextQuestionBtn = document.getElementById('nextQuestionBtn');
-    const resultAreaEl = document.getElementById('result-area');
-    const scoreTextEl = document.getElementById('score-text');
-    const restartQuizBtn = document.getElementById('restartQuizBtn');
-    const quizStartContainer = document.querySelector('.quiz-start-container');
-    let currentQuestionIndex = 0;
-    let score = 0;
-
-    if (startQuizBtn) startQuizBtn.addEventListener('click', startQuiz);
-    if (nextQuestionBtn) nextQuestionBtn.addEventListener('click', handleNextQuestion);
-    if (restartQuizBtn) restartQuizBtn.addEventListener('click', restartQuiz);
     
-    function startQuiz() {
-        if (quizStartContainer) quizStartContainer.style.display = 'none';
-        if (quizContainer) quizContainer.style.display = 'block';
-        currentQuestionIndex = 0; score = 0;
-        if (resultAreaEl) resultAreaEl.style.display = 'none';
-        if (nextQuestionBtn) nextQuestionBtn.style.display = 'block';
-        loadQuestion();
-    }
-    function loadQuestion() {
-        if (!questionTextEl || !optionsContainerEl) return;
-        const currentQuestion = quizData[currentQuestionIndex];
-        questionTextEl.textContent = `Питання ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
-        optionsContainerEl.innerHTML = ''; 
-        currentQuestion.options.forEach((option, index) => {
-            const optionId = `option${index}`;
-            const label = document.createElement('label');
-            label.htmlFor = optionId; label.className = 'option-label'; 
-            const radio = document.createElement('input');
-            radio.type = 'radio'; radio.name = 'quizOption'; radio.id = optionId; radio.value = option;
-            const span = document.createElement('span');
-            span.textContent = option;
-            label.appendChild(radio); label.appendChild(span);
-            optionsContainerEl.appendChild(label);
+    <!-- НОВИЙ СКРИПТ для опрацювання документа -->
+    <script>
+        // Код виконується після того, як все HTML-дерево буде завантажено
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. Оновлення року в футері (сучасний спосіб) ---
+            const yearSpan = document.getElementById('copyright-year');
+            if (yearSpan) { // Перевірка, чи елемент знайдено
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // --- 2. Приклад взаємодії з елементами ---
+            const mainTitle = document.querySelector('h1');
+            console.log('Поточний заголовок сторінки:', mainTitle.textContent);
+
+            const quizLink = document.querySelector('a[href="quiz.html"]');
+            console.log('Знайдено посилання на тест:', quizLink);
+
+            // --- 3. Приклад додавання події ---
+            const mapLink = document.querySelector('a[href="map.html"]');
+            if (mapLink) {
+                mapLink.addEventListener('click', function(event) {
+                    const userConfirmed = confirm('Ця дія перенаправить вас на інтерактивну карту. Продовжити?');
+                    if (!userConfirmed) {
+                        event.preventDefault(); // Скасувати перехід, якщо користувач відмовився
+                        console.log('Перехід на карту скасовано користувачем.');
+                    }
+                });
+            }
         });
-        if (nextQuestionBtn) nextQuestionBtn.textContent = (currentQuestionIndex === quizData.length - 1) ? 'Завершити тест' : 'Наступне питання';
-    }
-    function handleNextQuestion() {
-        const selectedOptionInput = document.querySelector('input[name="quizOption"]:checked');
-        if (!selectedOptionInput) { alert('Будь ласка, оберіть варіант відповіді.'); return; }
-        if (selectedOptionInput.value === quizData[currentQuestionIndex].answer) score++;
-        currentQuestionIndex++;
-        (currentQuestionIndex < quizData.length) ? loadQuestion() : showResults();
-    }
-    function showResults() {
-        if (quizContainer) quizContainer.style.display = 'block'; 
-        if (questionTextEl) questionTextEl.textContent = ''; 
-        if (optionsContainerEl) optionsContainerEl.innerHTML = ''; 
-        if (nextQuestionBtn) nextQuestionBtn.style.display = 'none';
-        if (resultAreaEl) resultAreaEl.style.display = 'block';
-        if (scoreTextEl) scoreTextEl.textContent = `Ви правильно відповіли на ${score} з ${quizData.length} питань.`;
-    }
-    function restartQuiz() {
-        if (quizStartContainer) quizStartContainer.style.display = 'block';
-        if (quizContainer) quizContainer.style.display = 'none';
-    }
-
-    const startPibPollBtn = document.getElementById('startPibPollBtn');
-    const pibResultMessageEl = document.getElementById('pibResultMessage');
-    if (startPibPollBtn) { 
-        startPibPollBtn.addEventListener('click', function() {
-            if (!pibResultMessageEl) return;
-            let firstName = prompt("Введіть своє ім'я:\n(Наприклад - Іван)", "");
-            if (firstName === null || firstName.trim() === "") { pibResultMessageEl.textContent = "Дія була відмінена або дані не введено."; return; }
-            let lastName = prompt("Введіть своє прізвище:\n(Наприклад - Іванченко)", "");
-            if (lastName === null || lastName.trim() === "") { pibResultMessageEl.textContent = "Дія була відмінена або дані не введено."; return; }
-            let patronymic = prompt("Як Вас по батькові?\n(Наприклад - Іванович)", "");
-            if (patronymic === null || patronymic.trim() === "") { pibResultMessageEl.textContent = "Дія була відмінена або дані не введено."; return; }
-            pibResultMessageEl.textContent = `Привіт ${lastName.trim()} ${firstName.trim()} ${patronymic.trim()}! Радий тебе бачити!`;
-        });
-    }
-    
-function displayGpnResult(elementId, value) {
-    const el = document.getElementById(elementId);
-    if (!el) {
-        return;
-    }
-
-    if (typeof value === 'string' && (value.includes("Будь ласка") || value.includes("не може") || value.includes("має бути") || value.includes("Ділення"))) {
-        el.className = 'gpn-error';
-        el.textContent = value;
-    } else if (typeof value === 'number') {
-        el.className = 'gpn-result';
-        if (isNaN(value)) {
-            el.className = 'gpn-error';
-            el.textContent = "Помилка: Некоректний результат обчислення (NaN).";
-        } else {
-            el.textContent = "Результат: " + value.toFixed(2);
-        }
-    } else {
-         el.className = 'gpn-error';
-         el.textContent = "Помилка: Невизначений результат або функція не знайдена.";
-    }
-}
-
-function runGpnCalc1() {
-    const numX = parseFloat(document.getElementById('gpn_num1_x').value);
-    const percentP = parseFloat(document.getElementById('gpn_percent1_p').value);
-
-    if (typeof calculatePercentOfNumber === 'function') {
-        const result = calculatePercentOfNumber(numX, percentP);
-        displayGpnResult('gpn_result1', result);
-    } else {
-        displayGpnResult('gpn_result1', "Помилка: скрипт gpn.js не завантажено або функція відсутня.");
-    }
-}
-
-function runGpnCalc2() {
-    const numY = parseFloat(document.getElementById('gpn_num2_y').value);
-    const percentP = parseFloat(document.getElementById('gpn_percent2_p').value);
-    if (typeof calculateNumberFromPartAndPercent === 'function') {
-        const result = calculateNumberFromPartAndPercent(numY, percentP);
-        displayGpnResult('gpn_result2', result);
-    } else {
-        displayGpnResult('gpn_result2', "Помилка: скрипт gpn.js не завантажено або функція відсутня.");
-    }
-}
-
-function runGpnCalc3() {
-    const numY = parseFloat(document.getElementById('gpn_num3_y').value);
-    const numX = parseFloat(document.getElementById('gpn_num3_x').value);
-    if (typeof calculateWhatPercentIsPartFromWhole === 'function') {
-        const result = calculateWhatPercentIsPartFromWhole(numY, numX);
-        displayGpnResult('gpn_result3', result);
-    } else {
-        displayGpnResult('gpn_result3', "Помилка: скрипт gpn.js не завантажено або функція відсутня.");
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (pibResultMessageEl) {
-        pibResultMessageEl.textContent = 'Натисніть кнопку "Розпочати опитування", щоб ввести свої дані.';
-    }
-    const gpnResultIds = ['gpn_result1', 'gpn_result2', 'gpn_result3'];
-    gpnResultIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = '';
-        
-    });
-});
-</script>
+    </script>
 </body>
 </html>

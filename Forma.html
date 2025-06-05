@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма Користувача - Настільний теніс</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --accent-color: #a8dadc;
+            --shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f9f9f9; /* Fallback */
+            color: #333;
+            font-size: 1.5rem;
+            line-height: 1.7;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+            padding: 2rem; 
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto;
+            padding-top: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 1.2rem 2.25rem;
+            border-radius: 75px; 
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.5rem; 
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            background: var(--dark-color);
+            transform: translateY(-4px);
+        }
+        
+        .btn-back {
+            background-color: var(--secondary-color); 
+            display: inline-block; 
+            margin-bottom: 2rem;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .btn-back i {
+            margin-right: 0.5em;
+        }
+
+        .lab-form-section {
+            background-color: white; 
+            padding: 2.5rem; 
+            border-radius: 18px; 
+            box-shadow: var(--shadow); 
+            margin-bottom: 3rem; 
+            animation: fadeIn 1s ease 0.2s both; 
+        }
+
+        .lab-form-section > h3 { /* Targeting only the main h3 */
+            color: var(--secondary-color); 
+            margin-bottom: 2rem; 
+            font-size: 2.25rem; 
+            text-align: center;
+        }
+        
+        /* Styles for fieldset and legend */
+        .lab-form-section fieldset {
+            border: none; /* Remove default fieldset border */
+            padding: 0;
+            margin-bottom: 1.5rem; /* Spacing between fieldsets */
+        }
+
+        .lab-form-section legend {
+            font-size: 1.8rem; 
+            color: var(--dark-color); 
+            margin-bottom: 1rem; 
+            padding-bottom: 0.5rem; 
+            border-bottom: 1px solid var(--accent-color);
+            width: 100%; /* Make legend take full width for border */
+            font-weight: 600;
+        }
+
+
+        .lab-form-section form {
+            font-size: 1.2rem; 
+            line-height: 1.8; 
+            color: var(--dark-color);
+        }
+        
+        .lab-form-section input[type="text"],
+        .lab-form-section input[type="password"],
+        .lab-form-section input[type="email"],
+        .lab-form-section input[type="url"],
+        .lab-form-section input[type="search"],
+        .lab-form-section input[type="tel"],
+        .lab-form-section input[type="number"],
+        .lab-form-section input[type="date"],
+        .lab-form-section input[type="datetime-local"],
+        .lab-form-section input[type="month"],
+        .lab-form-section input[type="time"],
+        .lab-form-section input[type="week"],
+        .lab-form-section input[type="color"],
+        .lab-form-section textarea, /* Added textarea for consistency */
+        .lab-form-section select {  /* Added select for consistency */
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--accent-color);
+            font-size: 1.1rem;
+            width: 100%; 
+            max-width: 450px; 
+            box-sizing: border-box;
+            display: block; /* Ensure they are block level */
+        }
+
+        .lab-form-section input[type="file"] {
+            padding: 10px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: block;
+        }
+        
+        .lab-form-section input[type="range"] { /* Specific styling for range if needed */
+             width: 100%; 
+             max-width: 450px;
+        }
+
+        .lab-form-section input[readonly] {
+             background-color: #f0f0f0;
+        }
+        
+        .lab-form-section label { /* General label styling */
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .lab-form-section .inline-label { /* For labels next to radio/checkbox */
+            display: inline;
+            font-weight: normal;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .lab-form-section input[type="checkbox"],
+        .lab-form-section input[type="radio"] {
+            margin-right: 5px;
+            vertical-align: middle;
+            transform: scale(1.2);
+        }
+        
+        .lab-form-section .form-group {
+            margin-bottom: 1.5rem; /* Increased margin for better spacing */
+        }
+        .lab-form-section .form-group br { /* Ensure BRs are not used for spacing */
+            display: none;
+        }
+        
+        /* Container for radio/checkbox options for alignment */
+        .lab-form-section .options-group div {
+            margin-bottom: 0.5rem;
+        }
+
+
+        /* СТИЛІ ДЛЯ КНОПОК ФОРМИ */
+        .form-action-buttons {
+            display: flex; 
+            gap: 1rem;     
+            margin-top: 1.5rem; 
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens if needed */
+        }
+
+        .form-action-buttons .btn {
+            flex-grow: 1;           
+            padding: 0.8rem 1rem;   
+            font-size: 1.2rem;     
+            margin-left: 0; 
+            margin-right: 0;
+            min-width: 150px; /* Ensure buttons have a minimum width */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            body { font-size: 1.3rem; padding: 1.5rem; }
+            .container { padding-top: 0.5rem; }
+            .btn { padding: 1rem 2rem; font-size: 1.3rem; }
+            
+            .form-action-buttons .btn {
+                 padding: 0.7rem 0.9rem;
+                 font-size: 1.1rem;
+            }
+
+            .lab-form-section { padding: 2rem; }
+            .lab-form-section > h3 { font-size: 1.95rem; }
+            .lab-form-section legend { font-size: 1.6rem; }
+
+            .lab-form-section form { font-size: 1.1rem; }
+            .lab-form-section input[type="text"],
+            .lab-form-section input[type="password"],
+            .lab-form-section input[type="email"],
+            .lab-form-section input[type="url"],
+            .lab-form-section input[type="search"],
+            .lab-form-section input[type="tel"],
+            .lab-form-section input[type="number"],
+            .lab-form-section input[type="date"],
+            .lab-form-section input[type="datetime-local"],
+            .lab-form-section input[type="month"],
+            .lab-form-section input[type="time"],
+            .lab-form-section input[type="week"],
+            .lab-form-section input[type="color"],
+            .lab-form-section textarea,
+            .lab-form-section select {
+                 font-size: 1rem;
+                 padding: 8px;
+            }
+             .lab-form-section input[type="file"] {
+                font-size: 1rem;
+                padding: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            body { padding: 1rem; }
+            .lab-form-section > h3 { font-size: 1.7rem; }
+            .lab-form-section legend { font-size: 1.5rem; }
+            .lab-form-section input[type="text"],
+            .lab-form-section input[type="password"],
+            .lab-form-section input[type="email"],
+            .lab-form-section input[type="url"],
+            .lab-form-section input[type="search"],
+            .lab-form-section input[type="tel"],
+            .lab-form-section input[type="number"],
+            .lab-form-section input[type="date"],
+            .lab-form-section input[type="datetime-local"],
+            .lab-form-section input[type="month"],
+            .lab-form-section input[type="time"],
+            .lab-form-section input[type="week"],
+            .lab-form-section input[type="color"],
+            .lab-form-section textarea,
+            .lab-form-section select {
+                 max-width: 100%; /* Allow inputs to take full available width */
+            }
+            .lab-form-section input[type="range"] {
+                 max-width: 100%;
+            }
+
+            .form-action-buttons {
+                flex-direction: column; 
+            }
+             .form-action-buttons .btn {
+                 font-size: 1rem; 
+                 padding: 0.8rem; 
+                 width: 100%; /* Make buttons full width in column layout */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="btn btn-back">
+            <i class="fas fa-arrow-left"></i> На Головну
+        </a>
+        <main>
+            <section class="lab-form-section">
+                <h3>Форма користувача</h3>
+                <form action="page.html" method="GET" autocomplete="on">
+                    
+                    <fieldset>
+                        <legend>Поля з можливим написанням даних</legend>
+                        <div class="form-group">
+                            <label for="myname_id">Текстове поле (логін):</label>
+                            <input type="text" id="myname_id" name="myname" maxlength="15" spellcheck="true" placeholder="Макс. 15 символів">
+                        </div>
+                        <div class="form-group">
+                            <label for="mypassword_id">Поле-пароль:</label>
+                            <input type="password" id="mypassword_id" name="mypassword" size="30" placeholder="Введіть пароль" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="myemail_id">Поле e-mail:</label>
+                            <input type="email" id="myemail_id" name="myemail" placeholder="name@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="myurl_id">Поле URL (особистий сайт):</label>
+                            <input type="url" id="myurl_id" name="myurl" placeholder="https://example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="mysearch_id">Поле пошуку:</label>
+                            <input type="search" id="mysearch_id" name="mysearch" placeholder="Пошуковий запит">
+                        </div>
+                        <div class="form-group">
+                            <label for="myphone_id">Поле для телефону:</label>
+                            <input type="tel" id="myphone_id" name="myphone" placeholder="+380-XX-XXX-XX-XX" pattern="^\+380-\d{2}-\d{3}-\d{2}-\d{2}$" title="Телефон у форматі +380-XX-XXX-XX-XX" required>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Поля які не потребують вводу тексту</legend>
+                        <div class="form-group">
+                            <label for="age_id">Числове поле (вік):</label>
+                            <input type="number" id="age_id" name="age" min="0" max="120" placeholder="Ваш вік" required>
+                        </div>
+                        
+                        <fieldset class="form-group"> <!-- Вкладений fieldset для чекбоксів -->
+                            <legend style="font-size: 1.2rem; border-bottom: none; margin-bottom: 0.5rem;">Опції:</legend> <!-- Спрощена легенда для вкладеної групи -->
+                            <div class="options-group">
+                                <div>
+                                    <input type="checkbox" id="ch1_id" name="ch1" value="agree_processing" checked required> 
+                                    <label for="ch1_id" class="inline-label">Згода на обробку даних</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="ch2_id" name="ch2" value="subscribe_newsletter"> 
+                                    <label for="ch2_id" class="inline-label">Підписка на розсилку</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="ch3_id" name="ch3" value="remember_me" checked> 
+                                    <label for="ch3_id" class="inline-label">Запам'ятати мене</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-group"> <!-- Fieldset для радіокнопок -->
+                            <legend style="font-size: 1.2rem; border-bottom: none; margin-bottom: 0.5rem;">Ваш вибір:</legend>
+                             <div class="options-group">
+                                <div>
+                                    <input type="radio" name="vibir" value="option1" id="vibir1"> <label for="vibir1" class="inline-label">Варіант 1</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="vibir" value="option2" id="vibir2" checked> <label for="vibir2" class="inline-label">Варіант 2 (обрано)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="vibir" value="option3" id="vibir3"> <label for="vibir3" class="inline-label">Варіант 3</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <div class="form-group">
+                            <label for="favcolor_id">Вибір улюбленого кольору:</label>
+                            <input type="color" id="favcolor_id" name="favcolor" value="#e63946">
+                        </div>
+                        <div class="form-group">
+                            <label for="avatarfile_id">Завантажити файл (аватар):</label>
+                            <input type="file" id="avatarfile_id" name="avatarfile" accept="image/*">
+                        </div>
+                        
+                        <input type="hidden" name="user_id" value="hidden_user_id_12345">
+                        
+                        <div class="form-group">
+                            <label for="readonly_field_id">Приклад поля тільки для читання:</label>
+                            <input type="text" id="readonly_field_id" name="readonly_field" value="Це значення незмінне" readonly size="30">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birth_date_id">Дата народження:</label>
+                            <input type="date" id="birth_date_id" name="birth_date">
+                        </div>
+                        <div class="form-group">
+                            <label for="meeting_datetime_id">Дата і час зустрічі:</label>
+                            <input type="datetime-local" id="meeting_datetime_id" name="meeting_datetime">
+                        </div>
+                        <div class="form-group">
+                            <label for="rating_id">Поле-діапазон (оцінка 1-10):</label>
+                            <input type="range" id="rating_id" name="rating" min="1" max="10" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="subscription_end_month_id">Місяць та рік закінчення підписки:</label>
+                            <input type="month" id="subscription_end_month_id" name="subscription_end_month">
+                        </div>
+                        <div class="form-group">
+                            <label for="call_time_id">Бажаний час для дзвінка:</label>
+                            <input type="time" id="call_time_id" name="call_time">
+                        </div>
+                        <div class="form-group">
+                            <label for="work_week_number_id">Робочий тиждень (номер):</label>
+                            <input type="week" id="work_week_number_id" name="work_week_number">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Кнопки</legend>
+                        <div class="form-action-buttons">
+                            <input type="submit" value="Відправити дані" class="btn">
+                            <input type="reset" value="Очистити форму" class="btn" style="background-color: var(--secondary-color);">
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
