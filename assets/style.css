@@ -1,0 +1,201 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Базові скидання та налаштування */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6; /* Світло-сірий фон */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: #ffffff; /* Білий фон для контенту */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px; /* Обмеження ширини для кращої читабельності */
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #2c3e50; /* Темно-синьо-сірий */
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #1a5276; /* Більш насичений синій для головного заголовка */
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 1.8em;
+    border-bottom: 2px solid #1abc9c; /* Акцентний колір для підзаголовків */
+    padding-bottom: 0.3em;
+    margin-top: 1.5em;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #34495e; /* Трохи світліший синьо-сірий */
+}
+
+p, ul li, ol li {
+    margin-bottom: 1em;
+    font-size: 1.05em;
+    color: #555;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+a {
+    color: #1abc9c; /* Акцентний бірюзовий для посилань */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #16a085; /* Темніший бірюзовий при наведенні */
+    text-decoration: underline;
+}
+
+/* Стилізація меню на index.html */
+.menu-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-list li {
+    background-color: #eafaf1; /* Світло-бірюзовий фон для пунктів меню */
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 6px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.menu-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.menu-list img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 15px;
+    filter: invert(49%) sepia(47%) saturate(467%) hue-rotate(117deg) brightness(95%) contrast(91%); /* Робить іконку в колір посилань */
+}
+
+.menu-list a {
+    font-size: 1.2em;
+    color: #2c3e50; /* Темний колір для тексту меню */
+    font-weight: 600;
+}
+.menu-list a:hover {
+    color: #1abc9c; /* Акцентний колір при наведенні на посилання в меню */
+    text-decoration: none; /* Забираємо підкреслення, бо ефект на весь блок */
+}
+
+
+/* Стилізація зображень на сторінках контенту */
+.content-image {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 15px;
+    max-width: 300px;
+    height: auto; /* Дозволяє зберігати пропорції */
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none; /* Прибираємо стандартний border */
+    padding: 0; /* Прибираємо стандартний padding */
+}
+
+/* Кнопка "Повернутись" */
+.nav-button-container {
+    clear: both;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.nav-button {
+    display: inline-block;
+    background-color: #1abc9c; /* Акцентний колір */
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-button:hover {
+    background-color: #16a085; /* Темніший при наведенні */
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* Адаптивність для менших екранів */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .content-image {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%; /* Щоб не прилипало до країв */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 15px;
+    }
+     h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .menu-list li {
+        padding: 12px 15px;
+    }
+    .menu-list a {
+        font-size: 1.1em;
+    }
+}
+/* style.css */
+.pos {
+    text-align: center;
+    margin-top: 20px;
+}
+

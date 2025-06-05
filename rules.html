@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила гри в настільний теніс | Офіційні правила ITTF</title>
+    <meta name="description" content="Офіційні правила гри в настільний теніс для одиночних та парних змагань. Детальний опис подачі, рахунку та всіх нюансів гри.">
+    <meta name="keywords" content="правила настільного тенісу, як грати в пінг-понг, офіційні правила ITTF, подача в тенісі, рахунок у тенісі">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #457b9d;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --accent-color: #a8dadc;
+            --shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.15); 
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #333;
+            font-size: 1.5rem; 
+            line-height: 1.7;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+            text-align: left; /* Загальне вирівнювання по лівому краю */
+        }
+
+        .container {
+            max-width: 93.33rem; 
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        header {
+            text-align: center; /* Залишаємо по центру */
+            margin-bottom: 4.5rem;
+            animation: fadeIn 1s ease;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 4.2rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block; /* Для центрування з text-align: center батька */
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8rem; 
+            height: 0.4rem; 
+            background: var(--primary-color);
+            border-radius: 0.2rem; 
+        }
+
+        .content-image {
+            display: block;
+            margin: 3rem auto;
+            max-width: 53.33rem; 
+            height: auto;
+            object-fit: cover;
+            border-radius: 1.2rem; 
+            box-shadow: var(--shadow);
+            border: 0.4rem solid white; 
+        }
+
+        .intro-text {
+            font-size: 1.85rem;
+            /* text-align: justify; -- Прибрано */
+            max-width: 66.67rem; 
+            margin: 0 auto 3rem;
+            color: var(--dark-color);
+            line-height: 1.95;
+        }
+        /* Якщо intro-text має бути по центру, а не успадковувати від body: */
+         .intro-text { text-align: center; }
+
+
+        .rule-section {
+            background: white;
+            border-radius: 1.2rem; 
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .rule-section:hover {
+            transform: translateY(-0.47rem); 
+            box-shadow: 0 1rem 1.47rem rgba(0, 0, 0, 0.2); 
+        }
+
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+            color: var(--secondary-color);
+            margin-bottom: 2.25rem;
+            font-size: 2.7rem;
+            position: relative;
+            padding-left: 2rem; 
+            /* text-align: left; -- За замовчуванням */
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0.5em; 
+            height: 1.2em; 
+            background: var(--primary-color);
+            border-radius: 0.22em; 
+        }
+
+        .rule-section p, 
+        .container > p:not(.intro-text):not(footer p)
+        {
+            margin-bottom: 2.25rem; 
+            line-height: 2.0;
+            font-size: 1.75rem;
+            /* text-align: justify; -- Прибрано */
+        }
+
+
+        ul, ol {
+            margin-bottom: 2.25rem;
+            list-style-type: none;
+             /* padding-left: 0; -- Якщо потрібно, щоб текст списків починався з самого краю батьківського контейнера */
+        }
+
+        li {
+            margin-bottom: 1.3rem;
+            position: relative;
+            font-size: 1.75rem;
+            /* text-align: justify; -- Прибрано */
+            line-height: 1.95;
+        }
+        li > strong {
+            text-align: left; 
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+
+        ul:not(ol.preparation-list ul) > li { 
+            padding-left: 2.5rem; 
+        }
+
+        ul:not(ol.preparation-list ul) > li::before {
+            font-family: "Font Awesome 6 Free";
+            content: '\f0da'; 
+            font-weight: 900; 
+            color: var(--primary-color);
+            font-size: 0.9em; 
+            position: absolute;
+            left: 0.5rem; 
+            top: 0; 
+            line-height: inherit; 
+            text-align: left;
+        }
+        
+
+        ol:not(.preparation-list) li { 
+            list-style-type: decimal; 
+            padding-left: 0.5rem;
+            margin-left: 2.5rem; 
+        }
+        ol:not(.preparation-list) > li::marker { 
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        ol.preparation-list > li {
+            list-style-type: decimal; 
+            margin-left: 0; 
+            padding-left: 0.5rem; 
+            text-align: left; 
+        }
+        ol.preparation-list > li::marker {
+            color: var(--primary-color); 
+            font-weight: bold;
+            font-size: 1.75rem; 
+        }
+
+        ol.preparation-list > li > strong {
+            display: inline; 
+            font-size: 1.75rem; 
+            text-align: left; 
+            color: var(--dark-color); 
+            font-weight: bold;
+        }
+
+        ol.preparation-list ul {
+            padding-left: 2.5rem; 
+            margin-top: 0.75rem;
+            margin-bottom: 1rem;
+            list-style-type: none; 
+        }
+
+        ol.preparation-list ul > li {
+            font-size: 1.65rem; 
+            line-height: 1.9;
+            padding-left: 2.2rem; 
+            text-align: left; 
+            margin-left: 0; 
+        }
+        
+        ol.preparation-list ul > li::before {
+            font-family: "Font Awesome 6 Free";
+            content: '\f0da'; 
+            font-weight: 900; 
+            color: var(--dark-color); 
+            font-size: 0.8em;  
+            position: absolute;
+            left: 0.4rem; 
+            top: 0.1em; 
+            line-height: inherit; 
+            text-align: left;
+        }
+
+        ul ul:not(ol.preparation-list ul), 
+        ol ul:not(ol.preparation-list ul), 
+        ul ol:not(ol.preparation-list ol), 
+        ol ol:not(ol.preparation-list ol) { 
+             margin-top: 0.75rem;
+             margin-bottom: 0.75rem;
+        }
+        ul ul:not(ol.preparation-list ul) li, 
+        ol ul:not(ol.preparation-list ul) li, 
+        ul ol:not(ol.preparation-list ol) li, 
+        ol ol:not(ol.preparation-list ol) li {
+            font-size: 1.65rem;
+            line-height: 1.9;
+        }
+        
+        ul ul:not(ol.preparation-list ul) > li { 
+             padding-left: 2.2rem; 
+         }
+        ul ul:not(ol.preparation-list ul) > li::before { 
+            font-size: 0.8em; 
+            left: 0.4rem; 
+        }
+
+
+        .important-note {
+            background: var(--light-color);
+            padding: 2.25rem;
+            border-radius: 0.8rem; 
+            margin: 2.25rem 0;
+            border-left: 0.4rem solid var(--primary-color); 
+            font-weight: 600;
+            font-size: 1.75rem;
+            /* text-align: justify; -- Прибрано */
+            line-height: 1.95;
+        }
+
+        .rule-image {
+            width: 100%;
+            max-width: 50rem; 
+            margin: 2.25rem auto;
+            display: block;
+            border-radius: 0.8rem; 
+            box-shadow: var(--shadow);
+        }
+
+        .nav-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 5rem; 
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-button:hover {
+            background: var(--dark-color);
+            transform: translateY(-0.27rem); 
+        }
+
+        .nav-button i {
+            margin-right: 0.8em; 
+            font-size: 1em; 
+        }
+
+        footer {
+            text-align: center; /* Залишаємо по центру */
+            margin-top: 4.5rem;
+            padding: 3rem 0;
+            color: var(--dark-color);
+            font-size: 1.35rem;
+        }
+        footer p {
+             font-size: 1.35rem;
+             text-align: center; /* Залишаємо по центру */
+             line-height: 1.7;
+             margin-bottom: 1rem;
+        }
+
+
+        .social-links {
+            display: flex;
+            justify-content: center; /* Залишаємо по центру */
+            gap: 2.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--dark-color);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-links a i {
+            font-size: 2.4rem; 
+        }
+
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+         .social-links a:hover i {
+            transform: translateY(-0.27rem); 
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(2rem); } 
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .rule-section {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .rule-section:nth-child(1) { animation-delay: 0.2s; }
+        .rule-section:nth-child(2) { animation-delay: 0.4s; }
+        .rule-section:nth-child(3) { animation-delay: 0.6s; }
+        .rule-section:nth-child(4) { animation-delay: 0.8s; }
+        .rule-section:nth-child(5) { animation-delay: 1.0s; }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+            h1 {
+                font-size: 3.3rem;
+            }
+             .intro-text {
+                font-size: 1.65rem;
+            }
+            .rule-section {
+                padding: 2.25rem;
+            }
+            h2 {
+                font-size: 2.3rem;
+                padding-left: 1.67rem; 
+            }
+            h2::before {
+                width: 0.43em; 
+                height: 1.0em; 
+            }
+            .rule-section p, .container > p:not(.intro-text):not(footer p), li, .important-note {
+                font-size: 1.5rem;
+            }
+            
+            ul:not(ol.preparation-list ul) > li {
+                padding-left: 2rem; 
+            }
+            ul:not(ol.preparation-list ul) > li::before {
+                left: 0.4rem; 
+                font-size: 0.85em;
+            }
+            ol:not(.preparation-list) li {
+                margin-left: 2rem; 
+            }
+            ol.preparation-list > li {
+                padding-left: 0.4rem;
+            }
+            ol.preparation-list > li > strong {
+                 font-size: 1.5rem;
+            }
+             ol.preparation-list > li::marker {
+                font-size: 1.5rem; 
+            }
+            ol.preparation-list ul {
+                padding-left: 2rem;
+            }
+            ol.preparation-list ul > li {
+                font-size: 1.4rem;
+                padding-left: 2rem;
+            }
+            ol.preparation-list ul > li::before {
+                left: 0.3rem;
+                font-size: 0.8em;
+                 top: 0.15em;
+            }
+
+            .nav-button {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.3rem; 
+            }
+             footer p {
+                font-size: 1.2rem;
+            }
+             .social-links a i {
+                font-size: 2rem; 
+            }
+        }
+         @media (max-width: 480px) {
+             h1 {
+                font-size: 2.8rem;
+            }
+            h1::after {
+                width: 6.67rem; 
+                height: 0.33rem; 
+                bottom: -0.8rem; 
+            }
+            .intro-text {
+                font-size: 1.45rem;
+            }
+            .rule-section {
+                padding: 1.8rem;
+            }
+             h2 {
+                font-size: 2rem;
+                padding-left: 1.33rem; 
+            }
+            h2::before {
+                width: 0.4em; 
+                height: 1.0em; 
+            }
+            .rule-section p, .container > p:not(.intro-text):not(footer p), li, .important-note {
+                font-size: 1.3rem;
+            }
+            
+            ul:not(ol.preparation-list ul) > li {
+                padding-left: 1.8rem; 
+            }
+            ul:not(ol.preparation-list ul) > li::before {
+                left: 0.3rem; 
+                font-size: 0.8em;
+            }
+            ol:not(.preparation-list) li {
+                margin-left: 1.8rem;
+            }
+             ol.preparation-list > li {
+                padding-left: 0.3rem;
+            }
+            ol.preparation-list > li > strong {
+                 font-size: 1.3rem;
+            }
+             ol.preparation-list > li::marker {
+                font-size: 1.3rem; 
+            }
+            ol.preparation-list ul {
+                padding-left: 1.8rem;
+            }
+            ol.preparation-list ul > li {
+                font-size: 1.2rem;
+                padding-left: 1.8rem;
+            }
+            ol.preparation-list ul > li::before {
+                left: 0.2rem;
+                font-size: 0.75em;
+                top: 0.15em;
+            }
+
+            .nav-button {
+                padding: 1rem 2rem;
+                font-size: 1.15rem;
+            }
+             footer p {
+                font-size: 1rem;
+            }
+             .social-links a i {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Правила гри в настільний теніс</h1>
+        </header>
+
+        <img src="/media/4.jpg" alt="Гравець подає м'яч у настільному тенісі" class="content-image">
+
+        <p class="intro-text">Настільний теніс - це швидкий, динамічний вид спорту з чіткими правилами, які регулюють всі аспекти гри. Офіційні правила встановлені Міжнародною федерацією настільного тенісу (ITTF). Ось основні положення, які потрібно знати кожному гравцю.</p>
+
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="index.html" class="nav-button" title="Повернутись на головну">
+                <i class="fas fa-arrow-left"></i> До головного меню
+            </a>
+        </div>
+
+        <div class="rule-section">
+            <h2>1. Стіл та сітка</h2>
+            <p>Гра проводиться на спеціальному столі, який повинен відповідати строгим стандартам:</p>
+            <ul>
+                <li><strong>Розміри:</strong> 2,74 м (довжина) × 1,525 м (ширина) × 0,76 м (висота)</li>
+                <li><strong>Поверхня:</strong> Матова, рівномірна, темно-синього або темно-зеленого кольору з білими лініями</li>
+                <li><strong>Сітка:</strong> Висота 15,25 см, довжина 1,83 м</li>
+                <li><strong>Лінії:</strong> Білі лінії шириною 2 см по краях, центральна лінія 3 мм (для парної гри)</li>
+            </ul>
+
+            <div class="important-note">
+                Важливо: Відскок м'яча повинен бути рівномірним по всій поверхні столу - при падінні з висоти 30 см м'яч повинен підстрибнути на 23 см.
+            </div>
+        </div>
+
+        <div class="rule-section">
+            <h2>2. Правила подачі</h2>
+            <p>Подача - це перший удар у розіграші, який має суворі правила виконання:</p>
+            <ol>
+                <li>М'яч повинен лежати на відкритій долоні нерухомої руки вище рівня столу.</li>
+                <li>Подаючий підкидає м'яч вертикально вгору мінімум на 16 см.</li>
+                <li>Удар по м'ячу повинен бути виконаний, коли м'яч падає вниз.</li>
+                <li>М'яч повинен спочатку вдаритися на своїй половині столу, потім перелетіти сітку і вдаритися на половині суперника.</li>
+                <li>У парній грі м'яч повинен вдаритися спочатку у праву половину подаючого, потім у праву половину приймаючого.</li>
+            </ol>
+
+            <div class="important-note">
+                При подачі м'яч не повинен зачіпати тіло гравця або одяг. Якщо м'яч торкається сітки, але правильно приземляється, оголошується "переподача" (let).
+            </div>
+        </div>
+
+        <div class="rule-section">
+            <h2>3. Розіграш очка</h2>
+            <p>Очко вважається виграним або програним у таких випадках:</p>
+            <ul>
+                <li><strong>Виграш очка:</strong>
+                    <ul>
+                        <li>Суперник не встигає відбити м'яч, і він торкається його половини столу двічі.</li>
+                        <li>Суперник відбиває м'яч за межі столу без дотику до його поверхні.</li>
+                        <li>Суперник торкається м'яча будь-якою частиною тіла або одягом.</li>
+                        <li>Суперник перешкоджає м'ячу (наприклад, ловить його над столом).</li>
+                    </ul>
+                </li>
+                <li><strong>Програш очка:</strong>
+                    <ul>
+                        <li>М'яч не влучає на половину суперника після вашого удару.</li>
+                        <li>Ви торкаєтеся столу вільною рукою під час розіграшу.</li>
+                        <li>Ви пересуваєте стіл під час розіграшу.</li>
+                        <li>Ви торкаєтеся сітки або стійки ракеткою або тілом.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="rule-section">
+            <h2>4. Система рахунку</h2>
+            <p>Сучасні правила передбачають таку систему підрахунку очок:</p>
+            <ul>
+                <li>Гейм (партія) триває до 11 очок.</li>
+                <li>Для перемоги необхідна перевага у 2 очки (наприклад, 11-9, 12-10, 13-11 тощо).</li>
+                <li>При рахунку 10-10 гра продовжується до досягнення переваги у 2 очки.</li>
+                <li>Матч зазвичай грається до 3, 5 або 7 переможних геймів.</li>
+                <li>Гравці змінюють сторони столу після кожного гейму, а при рахунку 5 у вирішальному геймі.</li>
+            </ul>
+
+            <div class="important-note">
+                Подача змінюється кожні 2 очки. При рахунку 10-10 подача змінюється після кожного очка. У парній грі подаючі змінюються послідовно.
+            </div>
+        </div>
+
+        <div class="rule-section">
+            <h2>5. Підготовка до гри</h2>
+            <p>Щоб успішно виступати, важлива правильна підготовка, яка включає декілька аспектів:</p>
+            <ol class="preparation-list">
+                <li>
+                    <strong>Фізична підготовка:</strong>
+                    <ul>
+                        <li>Регулярні тренування на витривалість.</li>
+                        <li>Вправи на швидкість та реакцію.</li>
+                        <li>Розминка перед кожною грою та заминка після.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Технічна підготовка:</strong>
+                    <ul>
+                        <li>Відпрацювання різних типів подач.</li>
+                        <li>Тренування атакуючих ударів (наприклад, топспін, накат).</li>
+                        <li>Тренування захисних ударів (наприклад, блок, підрізка).</li>
+                        <li>Робота над переміщенням біля столу та координацією.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Тактична підготовка:</strong>
+                    <ul>
+                        <li>Вивчення та аналіз гри потенційних суперників.</li>
+                        <li>Розробка декількох варіантів плану на гру.</li>
+                        <li>Здатність швидко адаптувати свою тактику під час матчу.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Психологічна підготовка:</strong>
+                    <ul>
+                        <li>Розвиток концентрації уваги та стійкості до стресу.</li>
+                        <li>Вміння справлятися з тиском відповідальних моментів.</li>
+                        <li>Формування позитивного настрою та впевненості у своїх силах.</li>
+                    </ul>
+                </li>
+            </ol>
+             <div class="important-note">
+                Комплексна підготовка - ключ до стабільних результатів та спортивного довголіття.
+            </div>
+        </div>
+
+
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="nav-button" title="Повернутись на головну">
+                <i class="fas fa-arrow-left"></i> До головного меню
+            </a>
+        </div>
+
+        <footer>
+            <p>© 2023 Настільний теніс. Всі права захищені.</p>
+            <div class="social-links">
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

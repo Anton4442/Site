@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтерактивна Карта Областей України</title>
+    <meta name="description" content="Інтерактивна карта областей України. Перегляньте області України та перейдіть на їхні офіційні сайти.">
+    <meta name="keywords" content="карта України, області України, інтерактивна карта, Україна, регіони України">
+    <meta name="robots" content="index, follow">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #457b9d;
+            --secondary-color1: #e63946;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --accent-color: #a8dadc;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+            display: flex; /* Допомагає притиснути футер до низу, якщо контенту мало */
+            flex-direction: column; /* Допомагає притиснути футер до низу */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex-grow: 1; /* Дозволяє контейнеру займати доступний простір */
+        }
+
+        .map-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .map-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-left: 20px; /* Залишив, хоча підкреслення тепер по центру */
+            text-align: center;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 50%; 
+            transform: translateX(-50%) translateY(-150%); 
+            top: 0; 
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .map-container {
+            text-align: center; 
+            margin: 1.5rem 0;
+            overflow-x: auto; 
+        }
+
+        .map-container svg {
+            max-width: 100%; 
+            height: auto;   
+            display: inline-block; 
+        }
+
+        /* Стилі для навігаційної кнопки */
+        .nav-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary-color1);
+            color: var(--light-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            margin-top: 1rem; /* Додав невеликий відступ зверху для кнопки */
+        }
+
+        .nav-button i {
+            margin-right: 0.6rem;
+        }
+
+        .nav-button:hover,
+        .nav-button:focus {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        
+        .nav-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem; /* Збільшив, щоб точно було видно після контейнера */
+            padding: 2rem 0;
+            color: var(--dark-color);
+            font-size: 0.9rem;
+            width: 100%; /* Щоб футер займав всю ширину */
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .map-section { 
+                padding: 1.5rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .nav-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <section class="map-section">
+            <h2>Інтерактивна Карта Областей України</h2>
+            <p style="margin-bottom: 1.5rem; color: #555; text-align: center;">Натисніть на відповідну область на карті, щоб перейти на сайт її адміністрації.</p>
+            
+            <div class="map-container">
+                <svg width="575" height="399" viewBox="0 0 575 399" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <image href="/media/ukraine.png" x="0" y="0" width="575" height="399" />
+            
+                    <!-- Київ та Київська область -->
+                    <a xlink:href="https://kyivcity.gov.ua/" target="_blank" aria-label="Сайт Київської міської державної адміністрації">
+                        <circle cx="269" cy="98" r="6" fill="transparent" stroke="transparent" style="cursor: pointer;" /> 
+                        <title>Київ та Київська область</title>
+                    </a>
+                    <!-- Львівська область -->
+                    <a xlink:href="https://loda.gov.ua/" target="_blank" aria-label="Сайт Львівської обласної державної адміністрації">
+                        <circle cx="100" cy="210" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Львівська область</title>
+                    </a>
+                    <!-- Харківська область -->
+                    <a xlink:href="https://kharkivoda.gov.ua/" target="_blank" aria-label="Сайт Харківської обласної державної адміністрації">
+                        <circle cx="480" cy="215" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Харківська область</title>
+                    </a>
+                    <!-- Одеська область -->
+                    <a xlink:href="https://oda.odessa.gov.ua/" target="_blank" aria-label="Сайт Одеської обласної державної адміністрації">
+                        <circle cx="290" cy="350" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Одеська область</title>
+                    </a>
+                    <!-- АР Крим (Сімферополь) -->
+                    <a xlink:href="https://www.ppu.gov.ua/" target="_blank" aria-label="Сайт Представництва Президента України в АР Крим">
+                        <circle cx="391" cy="361" r="6" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>АР Крим</title>
+                    </a>
+                    <!-- Волинська область (Луцьк) -->
+                    <a xlink:href="URL_ДЛЯ_ВОЛИНСЬКОЇ" target="_blank" aria-label="Сайт Волинської ОДА">
+                        <circle cx="132" cy="153" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Волинська область</title>
+                    </a>
+                    <!-- Рівненська область -->
+                    <a xlink:href="URL_ДЛЯ_РІВНЕНСЬКОЇ" target="_blank" aria-label="Сайт Рівненської ОДА">
+                        <circle cx="180" cy="155" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Рівненська область</title>
+                    </a>
+                    <!-- Житомирська область -->
+                    <a xlink:href="URL_ДЛЯ_ЖИТОМИРСЬКОЇ" target="_blank" aria-label="Сайт Житомирської ОДА">
+                        <circle cx="230" cy="175" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Житомирська область</title>
+                    </a>
+                    <!-- Чернігівська область -->
+                    <a xlink:href="URL_ДЛЯ_ЧЕРНІГІВСЬКОЇ" target="_blank" aria-label="Сайт Чернігівської ОДА">
+                        <circle cx="325" cy="125" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Чернігівська область</title>
+                    </a>
+                    <!-- Сумська область -->
+                    <a xlink:href="URL_ДЛЯ_СУМСЬКОЇ" target="_blank" aria-label="Сайт Сумської ОДА">
+                        <circle cx="420" cy="145" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Сумська область</title>
+                    </a>
+                    <!-- Полтавська область -->
+                    <a xlink:href="URL_ДЛЯ_ПОЛТАВСЬКОЇ" target="_blank" aria-label="Сайт Полтавської ОДА">
+                        <circle cx="400" cy="220" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Полтавська область</title>
+                    </a>
+                    <!-- Черкаська область -->
+                    <a xlink:href="URL_ДЛЯ_ЧЕРКАСЬКОЇ" target="_blank" aria-label="Сайт Черкаської ОДА">
+                        <circle cx="335" cy="240" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Черкаська область</title>
+                    </a>
+                    <!-- Вінницька область -->
+                    <a xlink:href="URL_ДЛЯ_ВІННИЦЬКОЇ" target="_blank" aria-label="Сайт Вінницької ОДА">
+                        <circle cx="235" cy="250" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Вінницька область</title>
+                    </a>
+                    <!-- Хмельницька область -->
+                    <a xlink:href="URL_ДЛЯ_ХМЕЛЬНИЦЬКОЇ" target="_blank" aria-label="Сайт Хмельницької ОДА">
+                        <circle cx="187" cy="237" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Хмельницька область</title>
+                    </a>
+                    <!-- Тернопільська область -->
+                    <a xlink:href="URL_ДЛЯ_ТЕРНОПІЛЬСЬКОЇ" target="_blank" aria-label="Сайт Тернопільської ОДА">
+                        <circle cx="150" cy="225" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Тернопільська область</title>
+                    </a>
+                    <!-- Івано-Франківська область -->
+                    <a xlink:href="URL_ДЛЯ_ІВАНО-ФРАНКІВСЬКОЇ" target="_blank" aria-label="Сайт Івано-Франківської ОДА">
+                        <circle cx="125" cy="265" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Івано-Франківська область</title>
+                    </a>
+                    <!-- Закарпатська область (Ужгород) -->
+                    <a xlink:href="URL_ДЛЯ_ЗАКАРПАТСЬКОЇ" target="_blank" aria-label="Сайт Закарпатської ОДА">
+                        <circle cx="67" cy="270" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Закарпатська область</title>
+                    </a>
+                    <!-- Чернівецька область -->
+                    <a xlink:href="URL_ДЛЯ_ЧЕРНІВЕЦЬКОЇ" target="_blank" aria-label="Сайт Чернівецької ОДА">
+                        <circle cx="158" cy="285" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Чернівецька область</title>
+                    </a>
+                    <!-- Кіровоградська область (Кропивницький) -->
+                    <a xlink:href="URL_ДЛЯ_КІРОВОГРАДСЬКОЇ" target="_blank" aria-label="Сайт Кіровоградської ОДА">
+                        <circle cx="350" cy="280" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Кіровоградська область</title>
+                    </a>
+                    <!-- Дніпропетровська область (Дніпро) -->
+                    <a xlink:href="URL_ДЛЯ_ДНІПРОПЕТРОВСЬКОЇ" target="_blank" aria-label="Сайт Дніпропетровської ОДА">
+                        <circle cx="430" cy="290" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Дніпропетровська область</title>
+                    </a>
+                    <!-- Запорізька область -->
+                    <a xlink:href="URL_ДЛЯ_ЗАПОРІЗЬКОЇ" target="_blank" aria-label="Сайт Запорізької ОДА">
+                        <circle cx="440" cy="330" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Запорізька область</title>
+                    </a>
+                    <!-- Херсонська область -->
+                    <a xlink:href="URL_ДЛЯ_ХЕРСОНСЬКОЇ" target="_blank" aria-label="Сайт Херсонської ОДА">
+                        <circle cx="370" cy="350" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Херсонська область</title>
+                    </a>
+                    <!-- Миколаївська область -->
+                    <a xlink:href="URL_ДЛЯ_МИКОЛАЇВСЬКОЇ" target="_blank" aria-label="Сайт Миколаївської ОДА">
+                        <circle cx="335" cy="335" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" />
+                        <title>Миколаївська область</title>
+                    </a>
+                    <!-- Донецька область -->
+                    <a xlink:href="URL_ДЛЯ_ДОНЕЦЬКОЇ" target="_blank" aria-label="Сайт Донецької ОДА">
+                        <circle cx="520" cy="290" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" /> 
+                        <title>Донецька область</title>
+                    </a>
+                    <!-- Луганська область -->
+                    <a xlink:href="URL_ДЛЯ_ЛУГАНСЬКОЇ" target="_blank" aria-label="Сайт Луганської ОДА">
+                        <circle cx="560" cy="260" r="8" fill="transparent" stroke="transparent" style="cursor: pointer;" /> 
+                        <title>Луганська область</title>
+                    </a>
+                </svg>
+            </div> <!-- кінець .map-container -->
+
+            <div style="text-align: center; margin-top: 2rem; margin-bottom: 1rem;"> <!-- Контейнер для центрування кнопки -->
+                <a href="index.html" class="nav-button" title="Повернутись на головну">
+                    <i class="fas fa-arrow-left"></i> До головного меню
+                </a>
+            </div>
+
+        </section> <!-- кінець .map-section -->
+    </div> <!-- кінець .container -->
+
+    <footer>
+        <p>© 2024 Інтерактивна Карта України. Всі права захищено.</p>
+        <!-- Можете додати будь-який інший контент у футер -->
+    </footer>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Історія настільного тенісу</title>
+    <meta name="description" content="Детальна історія виникнення та розвитку настільного тенісу, ключові етапи.">
+    <meta name="keywords" content="історія, настільний теніс, виникнення, пінг-понг, етапи розвитку, ITTF, Олімпійські ігри">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #457b9d;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --accent-color: #a8dadc;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #333;
+            font-size: 2rem; /* Збільшено з 1rem */
+            line-height: 1.6; 
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem; 
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem; 
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 5.6rem; /* Збільшено з 2.8rem */
+            color: var(--dark-color);
+            margin-bottom: 0.8rem; 
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px; 
+            height: 4px; 
+            background: var(--primary-color);
+            border-radius: 2px; 
+        }
+
+        .content-image {
+            display: block;
+            margin: 2rem auto; 
+            max-width: 600px; 
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px; 
+            box-shadow: var(--shadow);
+            border: 3px solid white; 
+            width: 100%;
+        }
+
+        .intro-text {
+            font-size: 2.3rem; /* Збільшено з 1.15rem */
+            text-align: center;
+            max-width: 800px; 
+            margin: 0 auto 2rem; 
+            color: var(--dark-color);
+            line-height: 1.7; 
+        }
+
+        .history-content p {
+            font-size: 2rem; /* Збільшено з 1rem */
+            margin-bottom: 1.2rem; 
+            line-height: 1.7; 
+            text-align: justify;
+        }
+
+        .nav-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.6rem; 
+            border-radius: 25px; 
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.9rem; /* Збільшено з 0.95rem */
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-button:hover {
+            background: var(--dark-color);
+            transform: translateY(-2px); 
+        }
+
+        .nav-button i {
+            margin-right: 8px; 
+        }
+
+        .table-container {
+            margin: 2.5rem 0; 
+            overflow-x: auto;
+            background-color: white;
+            border-radius: 8px; 
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table caption {
+            font-size: 3rem; /* Збільшено з 1.5rem */
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, serif;
+            color: var(--dark-color);
+            padding: 1rem; 
+            text-align: center;
+            background-color: var(--accent-color);
+            border-top-left-radius: 8px; 
+            border-top-right-radius: 8px; 
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.8rem 1rem; 
+            text-align: left;
+            vertical-align: middle;
+            font-size: 1.9rem; /* Збільшено з 0.95rem */
+        }
+
+        thead th {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 700;
+            font-size: 2rem; /* Збільшено з 1rem */
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tbody tr:hover {
+            background-color: #e9ecef;
+        }
+
+        td[rowspan] {
+            font-weight: 700;
+            background-color: #f0f2f5;
+            color: var(--dark-color);
+            vertical-align: top;
+            padding-top: 1rem; 
+        }
+
+        .table-info {
+            margin-top: 1.5rem; 
+            margin-bottom: 2rem; 
+            padding: 1.5rem; 
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 8px; 
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color); 
+        }
+
+        .table-info h3 {
+            font-family: 'Times New Roman', Times, serif;
+            color: var(--dark-color);
+            margin-bottom: 0.8rem; 
+            font-size: 2.8rem; /* Збільшено з 1.4rem */
+        }
+
+        .table-info p {
+            margin-bottom: 1rem; 
+            line-height: 1.7; 
+            text-align: justify;
+            color: #333;
+            font-size: 2rem; /* Збільшено з 1rem */
+        }
+
+        .table-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2.5rem; 
+            padding: 2rem 0; 
+            color: var(--dark-color);
+            font-size: 1.8rem; /* Збільшено з 0.9rem */
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem; 
+            margin-top: 1rem; 
+        }
+
+        .social-links a {
+            color: var(--dark-color);
+            font-size: 3rem; /* Збільшено з 1.5rem */
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px); 
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 1.9rem; /* Збільшено з 0.95rem */
+            }
+            .container {
+                padding: 1.2rem; 
+            }
+            h1 {
+                font-size: 4.4rem; /* Збільшено з 2.2rem */
+            }
+            .intro-text {
+                font-size: 2.1rem; /* Збільшено з 1.05rem */
+            }
+            .history-content p {
+                font-size: 1.9rem; /* Збільшено з 0.95rem */
+            }
+
+            .nav-button {
+                padding: 0.7rem 1.4rem; 
+                font-size: 1.8rem; /* Збільшено з 0.9rem */
+            }
+
+            table caption {
+                font-size: 2.6rem; /* Збільшено з 1.3rem */
+                padding: 0.8rem; 
+            }
+            th, td {
+                padding: 0.7rem 0.9rem; 
+                font-size: 1.8rem; /* Збільшено з 0.9rem */
+            }
+            thead th {
+                font-size: 1.9rem; /* Збільшено з 0.95rem */
+            }
+
+            .table-info {
+                padding: 1.2rem; 
+            }
+            .table-info h3 {
+                font-size: 2.5rem; /* Збільшено з 1.25rem */
+            }
+            .table-info p {
+                font-size: 1.9rem; /* Збільшено з 0.95rem */
+            }
+            footer {
+                font-size: 1.7rem; /* Збільшено з 0.85rem */
+            }
+            .social-links a {
+                font-size: 2.6rem; /* Збільшено з 1.3rem */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Історія настільного тенісу</h1>
+        </header>
+
+        <img src="/media/2.jpg" alt="Історичне фото гри в настільний теніс" class="content-image">
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <a href="index.html" class="nav-button" title="Повернутись на головну">
+                <i class="fas fa-arrow-left"></i> До головного меню
+            </a>
+        </div>
+
+        <div class="history-content">
+            <p>Настільний теніс, також відомий як пінг-понг, виник у другій половині XIX століття в Англії. Спочатку це була салонна розвага для вищих верств суспільства, яка імітувала великий теніс у приміщенні, особливо в дощові дні.</p>
+            <p>Перші гравці використовували предмети побуту: книги замість сітки, круглі пробки від пляшок шампанського або гумові м'ячики як м'ячі, а сигарні коробки або навіть долоні — як ракетки. У 1880-х роках гра стала популярнішою, і почали з'являтися перші набори для гри.</p>
+            <p>Назва "пінг-понг" з'явилася завдяки характерному звуку, який видавав целулоїдний м'ячик, вдаряючись об стіл та ракетки. Цей звук був популяризований англійською фірмою J. Jaques & Son Ltd наприкінці 1890-х років. У 1901 році в Англії було створено першу асоціацію пінг-понгу.</p>
+            <p>Міжнародна федерація настільного тенісу (ITTF) була заснована в 1926 році. Перший чемпіонат світу відбувся того ж року в Лондоні. З того часу настільний теніс став по-справжньому міжнародним видом спорту, а в 1988 році його включили до програми Олімпійських ігор.</p>
+            <p>Сьогодні настільний теніс є одним з найпопулярніших видів спорту у світі, особливо в Азії, де гравці з Китаю, Японії та Південної Кореї регулярно домінують на міжнародних змаганнях.</p>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <caption>Ключові віхи в історії настільного тенісу</caption>
+                <thead>
+                    <tr>
+                        <th>Період</th>
+                        <th>Ключова подія / Розвиток</th>
+                        <th>Значення та Вплив</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Кінець XIX ст.</td>
+                        <td>Зародження гри в Англії як "кімнатний теніс"</td>
+                        <td>Поява як салонної розваги, використання підручних засобів для гри (книги, пробки).</td>
+                    </tr>
+                    <tr>
+                        <td>Поява целулоїдного м'яча (бл. 1900 р.)</td>
+                        <td>Революція в динаміці гри, забезпечення кращого відскоку та характерного звуку "пінг-понг".</td>
+                    </tr>
+                    <tr>
+                        <td>1926 рік</td>
+                        <td>Заснування Міжнародної Федерації Настільного Тенісу (ITTF) та проведення першого Чемпіонату Світу в Лондоні.</td>
+                        <td>Офіційне визнання як міжнародного виду спорту, створення єдиних правил та глобальної змагальної структури.</td>
+                    </tr>
+                    <tr>
+                        <td>1988 рік</td>
+                        <td>Включення настільного тенісу до програми Літніх Олімпійських ігор в Сеулі.</td>
+                        <td>Найвищий рівень спортивного визнання, значне зростання глобальної популярності та престижу спорту.</td>
+                    </tr>
+                     <tr>
+                        <td>XXI століття</td>
+                        <td>Технологічний прогрес інвентарю, зміни в правилах (наприклад, перехід на м'яч 40+ мм, зміна системи підрахунку очок).</td>
+                        <td>Адаптація гри до сучасних вимог, підвищення видовищності для глядачів, розвиток нових стилів гри.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-info">
+            <h3>Еволюція гри та її значення</h3>
+            <p>Представлені в таблиці етапи ілюструють трансформацію настільного тенісу від простої вікторіанської салонної розваги до високотехнологічного та конкурентного олімпійського виду спорту. Кожен етап супроводжувався важливими змінами: від імпровізованого інвентарю до стандартизованих ракеток і м'ячів, від локальних турнірів до всесвітніх чемпіонатів та Олімпійських ігор.</p>
+            <p>Вагомий внесок у розвиток зробили як технологічні інновації (наприклад, гумові накладки на ракетки, що дозволили виконувати складні обертання), так і організаційні зусилля, що призвели до створення міжнародних федерацій та уніфікації правил. Сучасний настільний теніс продовжує динамічно розвиватися, залучаючи мільйони ентузіастів по всьому світу завдяки своїй доступності, швидкості та тактичній глибині. Постійні зміни в правилах та інвентарі спрямовані на підтримку балансу між атакою та захистом, а також на підвищення видовищності гри для глядачів.</p>
+        </div>
+
+        <div style="text-align: center; margin: 2.5rem 0 2rem;">
+            <a href="index.html" class="nav-button" title="Повернутись на головну">
+                <i class="fas fa-arrow-left"></i> До головного меню
+            </a>
+        </div>
+
+        <footer>
+            <p>© 2023 Настільний теніс. Всі права захищені.</p>
+            <div class="social-links">
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
