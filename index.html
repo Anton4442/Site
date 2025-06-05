@@ -463,33 +463,29 @@
             </div>
         </footer>
     </div>
-    
-    <!-- НОВИЙ СКРИПТ для опрацювання документа -->
+
     <script>
-        // Код виконується після того, як все HTML-дерево буде завантажено
+
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // --- 1. Оновлення року в футері (сучасний спосіб) ---
             const yearSpan = document.getElementById('copyright-year');
             if (yearSpan) { // Перевірка, чи елемент знайдено
                 yearSpan.textContent = new Date().getFullYear();
             }
 
-            // --- 2. Приклад взаємодії з елементами ---
+   
             const mainTitle = document.querySelector('h1');
             console.log('Поточний заголовок сторінки:', mainTitle.textContent);
 
             const quizLink = document.querySelector('a[href="quiz.html"]');
             console.log('Знайдено посилання на тест:', quizLink);
 
-            // --- 3. Приклад додавання події ---
             const mapLink = document.querySelector('a[href="map.html"]');
             if (mapLink) {
                 mapLink.addEventListener('click', function(event) {
-                    const userConfirmed = confirm('Ця дія перенаправить вас на інтерактивну карту. Продовжити?');
                     if (!userConfirmed) {
-                        event.preventDefault(); // Скасувати перехід, якщо користувач відмовився
+                        event.preventDefault(); 
                         console.log('Перехід на карту скасовано користувачем.');
+                        
                     }
                 });
             }
