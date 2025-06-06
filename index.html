@@ -365,7 +365,7 @@
             <ul class="menu-list">
                 <li>
                     <a href="history.html" title="Дізнатися про історію настільного тенісу">
-                        <img src="./images/2.png" alt="Історія настільного тенісу">
+                        <img src="./images/19.png" alt="Історія настільного тенісу">
                         <div class="content">
                             <h2>Історія</h2>
                             <p>Дізнайтесь як виник настільний теніс та як він розвивався протягом століть</p>
@@ -457,7 +457,6 @@
         </main>
 
         <footer>
-            <!-- ВИПРАВЛЕНО: Замість document.write, використовуємо span з id -->
             <p>© <span id="copyright-year"></span> Все про Настільний Теніс. Всі права захищено.</p>
             <div class="social-links">
             </div>
@@ -468,7 +467,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const yearSpan = document.getElementById('copyright-year');
-            if (yearSpan) { // Перевірка, чи елемент знайдено
+            if (yearSpan) {
                 yearSpan.textContent = new Date().getFullYear();
             }
 
