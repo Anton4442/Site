@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Інтерактивне опитування ПІБ - Настільний теніс</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Рекомендація: Підключіть ваш основний CSS файл сюди, якщо він є, 
-         замість копіювання стилів. Наприклад: <link rel="stylesheet" href="style.css"> 
-         Нижче наведено мінімально необхідні стилі для роботи цієї сторінки. -->
     <style>
         :root {
             --primary-color: #e63946;
@@ -29,23 +26,23 @@
             font-family: 'Times New Roman', Times, serif;
             background-color: #f9f9f9;
             color: #333;
-            font-size: 1.5rem; /* Базовий розмір шрифту */
+            font-size: 1.5rem; 
             line-height: 1.7;
             background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
             min-height: 100vh;
-            padding: 2rem; /* Додамо відступи для тіла сторінки */
+            padding: 2rem; 
             display: flex;
             flex-direction: column;
-            align-items: center; /* Центрування вмісту */
-            justify-content: center; /* Центрування вмісту по вертикалі, якщо сторінка коротка */
+            align-items: center; 
+            justify-content: center; 
         }
         
-        .container { /* Додамо контейнер для обмеження ширини */
+        .container { 
             max-width: 800px;
             width: 100%;
             margin: 2rem auto;
             padding: 2rem;
-            background-color: rgba(255, 255, 255, 0.8); /* Напівпрозорий фон для кращої читабельності */
+            background-color: rgba(255, 255, 255, 0.8); 
             border-radius: 18px;
             box-shadow: var(--shadow);
         }
@@ -69,7 +66,7 @@
             transform: translateY(-4px);
         }
 
-        .btn-map { /* Стиль для кнопки, як в index.html */
+        .btn-map { 
             padding: 1.5rem 3rem;
             font-size: 1.65rem;
             display: block;
@@ -87,15 +84,15 @@
         .interactive-poll-section {
             text-align: center;
             padding: 2.5rem;
-            background-color: white; /* Зробимо фон непрозорим для секції */
+            background-color: white; 
             border-radius: 18px;
             box-shadow: var(--shadow);
-            width: 100%; /* Займати всю ширину батьківського .container */
+            width: 100%; 
         }
 
         .interactive-poll-section h3 {
             font-family: 'Times New Roman', Times, serif;
-            font-size: 2.25rem; /* Узгоджуємо з h3 в index.html */
+            font-size: 2.25rem;
             color: var(--secondary-color);
             font-weight: 600;
             margin-bottom: 2rem;
@@ -147,13 +144,12 @@
             padding-top: 0.3rem;
         }
 
-        /* Навігаційна кнопка "Назад" */
         .back-button-container {
             margin-top: 2rem;
             text-align: center;
         }
          .back-button-container .btn {
-            background-color: var(--primary-color); /* Інший колір для кнопки "Назад" */
+            background-color: var(--primary-color); 
             font-size: 1.2rem;
             padding: 0.8rem 1.8rem;
         }

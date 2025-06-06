@@ -6,7 +6,6 @@
     <title>Тест: Знання з Настільного Тенісу</title>
     
     <style>
-        /* Скопійовані необхідні стилі з головної сторінки */
         :root {
             --primary-color: #e63946;
             --secondary-color: #1d3557;
@@ -33,7 +32,6 @@
         .btn { display: inline-block; background: var(--primary-color); color: white; padding: 1.2rem 2.25rem; border-radius: 75px; text-decoration: none; font-weight: 600; font-size: 1.5rem; transition: var(--transition); border: none; cursor: pointer; text-align: center; }
         .btn:hover { background: var(--dark-color); }
         
-        /* Стилі для блоку з тестом */
         #quiz-container {
             background-color: white;
             padding: 2.5rem;
@@ -57,7 +55,6 @@
 <body>
 
     <div class="container">
-        <!-- Цей блок з тестом тепер є основним вмістом сторінки -->
         <div id="quiz-container">
             <h3 id="quiz-title">Тест: Знання з Настільного Тенісу</h3>
             <div id="question-area">
@@ -153,9 +150,8 @@
 
     // Додаємо обробники подій
     nextQuestionBtn.addEventListener('click', handleNextQuestion);
-    restartQuizBtn.addEventListener('click', startQuiz); // Кнопка "Спробувати ще раз" просто перезапускає тест
+    restartQuizBtn.addEventListener('click', startQuiz); 
 
-    // Запускаємо тест автоматично, коли сторінка завантажилась
     document.addEventListener('DOMContentLoaded', startQuiz);
 </script>
 

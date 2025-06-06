@@ -28,7 +28,7 @@
             font-family: 'Times New Roman', Times, serif;
             background-color: #f9f9f9;
             color: #333;
-            font-size: 1.5rem; /* Базовий розмір шрифту */
+            font-size: 1.5rem;
             line-height: 1.7;
             background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
             min-height: 100vh;
@@ -36,7 +36,7 @@
         }
 
         .container {
-            max-width: 900px; /* Оптимальна ширина для калькулятора */
+            max-width: 900px;
             margin: 2rem auto;
             padding: 2rem;
             background-color: white;
@@ -49,10 +49,10 @@
             background: var(--primary-color);
             color: white;
             padding: 1.2rem 2.25rem;
-            border-radius: 75px; 
+            border-radius: 75px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.5rem; 
+            font-size: 1.5rem;
             transition: var(--transition);
             border: none;
             cursor: pointer;
@@ -63,7 +63,7 @@
             background: var(--dark-color);
             transform: translateY(-4px);
         }
-        
+
         .btn-back {
             margin-bottom: 2rem;
             background-color: var(--secondary-color);
@@ -72,8 +72,6 @@
             margin-right: 0.5em;
         }
 
-
-        /* Стилі для калькулятора, скопійовані та адаптовані */
         .gpn-calculator-section h3 {
             color: var(--secondary-color);
             margin-bottom: 2rem;
@@ -93,7 +91,7 @@
             border-bottom: 1px solid var(--accent-color);
         }
         .gpn-calc-block {
-            margin-bottom: 2rem; 
+            margin-bottom: 2rem;
             padding-bottom: 1.5rem;
         }
         .gpn-calc-block:not(:last-child) {
@@ -116,33 +114,32 @@
             font-size: 1.1rem;
             box-sizing: border-box;
         }
-        .gpn-calculator-section .btn { /* Кнопки всередині калькулятора */
+        .gpn-calculator-section .btn {
              margin-top: 0.5rem;
         }
         .gpn-result {
             margin-top: 1rem;
             padding: 0.8rem;
             border-radius: 6px;
-            background-color: #e8f5e9; 
-            border-left: 5px solid #4CAF50; 
+            background-color: #e8f5e9;
+            border-left: 5px solid #4CAF50;
             font-weight: bold;
-            color: #2E7D32; 
+            color: #2E7D32;
             font-size: 1.2rem;
-            min-height: 1.5em; /* Щоб поле не "стрибало" при появі тексту */
+            min-height: 1.5em;
         }
         .gpn-error {
             margin-top: 1rem;
             padding: 0.8rem;
             border-radius: 6px;
-            background-color: #ffebee; 
-            border-left: 5px solid var(--primary-color); 
+            background-color: #ffebee;
+            border-left: 5px solid var(--primary-color);
             font-weight: bold;
-            color: #c62828; 
+            color: #c62828;
             font-size: 1.2rem;
-            min-height: 1.5em; /* Щоб поле не "стрибало" при появі тексту */
+            min-height: 1.5em;
         }
 
-        /* Адаптивність для менших екранів */
         @media (max-width: 768px) {
             body { font-size: 1.3rem; padding: 1rem;}
             .container { padding: 1.5rem; margin: 1rem auto; }
@@ -161,8 +158,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="btn btn-back"><i class="fas fa-arrow-left"></i> На Головну</a> 
-        <!-- Припускаю, що ваш головний файл називається index.html -->
+        <a href="index.html" class="btn btn-back"><i class="fas fa-arrow-left"></i> На Головну</a>
 
         <section class="gpn-calculator-section">
             <h3><i class="fas fa-calculator"></i> Калькулятор Відсотків</h3>
@@ -228,8 +224,7 @@
                     el.className = 'gpn-error';
                     el.textContent = "Помилка: Некоректний результат обчислення (NaN).";
                 } else {
-                    // Показуємо до 2 знаків після коми, якщо вони є
-                    el.textContent = "Результат: " + parseFloat(value.toFixed(2)); 
+                    el.textContent = "Результат: " + parseFloat(value.toFixed(2));
                 }
             } else {
                 el.className = 'gpn-error';
@@ -275,7 +270,7 @@
             const gpnResultIds = ['gpn_result1', 'gpn_result2', 'gpn_result3'];
             gpnResultIds.forEach(id => {
                 const el = document.getElementById(id);
-                if (el) el.textContent = ''; 
+                if (el) el.textContent = '';
             });
         });
     </script>

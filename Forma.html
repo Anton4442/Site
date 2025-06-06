@@ -25,30 +25,30 @@
 
         body {
             font-family: 'Times New Roman', Times, serif;
-            background-color: #f9f9f9; /* Fallback */
+            background-color: #f9f9f9;
             color: #333;
             font-size: 1.5rem;
             line-height: 1.7;
             background: linear-gradient(135deg, var(--light-color) 0%, var(--accent-color) 100%);
             min-height: 100vh;
-            padding: 2rem; 
+            padding: 2rem;
         }
 
-        .container { 
-            max-width: 900px; 
+        .container {
+            max-width: 900px;
             margin: 0 auto;
             padding-top: 1rem;
         }
-        
+
         .btn {
             display: inline-block;
             background: var(--primary-color);
             color: white;
             padding: 1.2rem 2.25rem;
-            border-radius: 75px; 
+            border-radius: 75px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.5rem; 
+            font-size: 1.5rem;
             transition: var(--transition);
             border: none;
             cursor: pointer;
@@ -60,9 +60,9 @@
             background: var(--dark-color);
             transform: translateY(-4px);
         }
-        
+
         .btn-back {
-            display: inline-block; 
+            display: inline-block;
             margin-bottom: 2rem;
             margin-left: 0;
             margin-right: 0;
@@ -72,45 +72,44 @@
         }
 
         .lab-form-section {
-            background-color: white; 
-            padding: 2.5rem; 
-            border-radius: 18px; 
-            box-shadow: var(--shadow); 
-            margin-bottom: 3rem; 
-            animation: fadeIn 1s ease 0.2s both; 
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease 0.2s both;
         }
 
-        .lab-form-section > h3 { /* Targeting only the main h3 */
-            color: var(--secondary-color); 
-            margin-bottom: 2rem; 
-            font-size: 2.25rem; 
+        .lab-form-section > h3 {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            font-size: 2.25rem;
             text-align: center;
         }
-        
-        /* Styles for fieldset and legend */
+
         .lab-form-section fieldset {
-            border: none; /* Remove default fieldset border */
+            border: none;
             padding: 0;
-            margin-bottom: 1.5rem; /* Spacing between fieldsets */
+            margin-bottom: 1.5rem;
         }
 
         .lab-form-section legend {
-            font-size: 1.8rem; 
-            color: var(--dark-color); 
-            margin-bottom: 1rem; 
-            padding-bottom: 0.5rem; 
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--accent-color);
-            width: 100%; /* Make legend take full width for border */
+            width: 100%;
             font-weight: 600;
         }
 
 
         .lab-form-section form {
-            font-size: 1.2rem; 
-            line-height: 1.8; 
+            font-size: 1.2rem;
+            line-height: 1.8;
             color: var(--dark-color);
         }
-        
+
         .lab-form-section input[type="text"],
         .lab-form-section input[type="password"],
         .lab-form-section input[type="email"],
@@ -124,17 +123,17 @@
         .lab-form-section input[type="time"],
         .lab-form-section input[type="week"],
         .lab-form-section input[type="color"],
-        .lab-form-section textarea, /* Added textarea for consistency */
-        .lab-form-section select {  /* Added select for consistency */
+        .lab-form-section textarea,
+        .lab-form-section select {
             padding: 10px;
             margin-bottom: 12px;
             border-radius: 6px;
             border: 1px solid var(--accent-color);
             font-size: 1.1rem;
-            width: 100%; 
-            max-width: 450px; 
+            width: 100%;
+            max-width: 450px;
             box-sizing: border-box;
-            display: block; /* Ensure they are block level */
+            display: block;
         }
 
         .lab-form-section input[type="file"] {
@@ -143,23 +142,23 @@
             font-size: 1.1rem;
             display: block;
         }
-        
-        .lab-form-section input[type="range"] { /* Specific styling for range if needed */
-             width: 100%; 
+
+        .lab-form-section input[type="range"] {
+             width: 100%;
              max-width: 450px;
         }
 
         .lab-form-section input[readonly] {
              background-color: #f0f0f0;
         }
-        
-        .lab-form-section label { /* General label styling */
+
+        .lab-form-section label {
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
         }
-        
-        .lab-form-section .inline-label { /* For labels next to radio/checkbox */
+
+        .lab-form-section .inline-label {
             display: inline;
             font-weight: normal;
             margin-left: 5px;
@@ -172,39 +171,36 @@
             vertical-align: middle;
             transform: scale(1.2);
         }
-        
+
         .lab-form-section .form-group {
-            margin-bottom: 1.5rem; /* Increased margin for better spacing */
+            margin-bottom: 1.5rem;
         }
-        .lab-form-section .form-group br { /* Ensure BRs are not used for spacing */
+        .lab-form-section .form-group br {
             display: none;
         }
-        
-        /* Container for radio/checkbox options for alignment */
+
         .lab-form-section .options-group div {
             margin-bottom: 0.5rem;
         }
 
-
-        /* СТИЛІ ДЛЯ КНОПОК ФОРМИ */
         .form-action-buttons {
-            display: flex; 
-            gap: 1rem;     
-            margin-top: 1.5rem; 
-            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens if needed */
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .form-action-buttons .btn {
-            flex-grow: 1;           
-            padding: 0.8rem 1rem;   
-            font-size: 1.2rem;     
-            margin-left: 0; 
+            flex-grow: 1;
+            padding: 0.8rem 1rem;
+            font-size: 1.2rem;
+            margin-left: 0;
             margin-right: 0;
-            min-width: 150px; /* Ensure buttons have a minimum width */
+            min-width: 150px;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); } 
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -212,7 +208,7 @@
             body { font-size: 1.3rem; padding: 1.5rem; }
             .container { padding-top: 0.5rem; }
             .btn { padding: 1rem 2rem; font-size: 1.3rem; }
-            
+
             .form-action-buttons .btn {
                  padding: 0.7rem 0.9rem;
                  font-size: 1.1rem;
@@ -265,19 +261,19 @@
             .lab-form-section input[type="color"],
             .lab-form-section textarea,
             .lab-form-section select {
-                 max-width: 100%; /* Allow inputs to take full available width */
+                 max-width: 100%;
             }
             .lab-form-section input[type="range"] {
                  max-width: 100%;
             }
 
             .form-action-buttons {
-                flex-direction: column; 
+                flex-direction: column;
             }
              .form-action-buttons .btn {
-                 font-size: 1rem; 
-                 padding: 0.8rem; 
-                 width: 100%; /* Make buttons full width in column layout */
+                 font-size: 1rem;
+                 padding: 0.8rem;
+                 width: 100%;
             }
         }
 
@@ -292,7 +288,7 @@
             <section class="lab-form-section">
                 <h3>Форма користувача</h3>
                 <form action="page.html" method="GET" autocomplete="on">
-                    
+
                     <fieldset>
                         <legend>Поля з можливим написанням даних</legend>
                         <div class="form-group">
@@ -327,26 +323,26 @@
                             <label for="age_id">Числове поле (вік):</label>
                             <input type="number" id="age_id" name="age" min="0" max="120" placeholder="Ваш вік" required>
                         </div>
-                        
-                        <fieldset class="form-group"> <!-- Вкладений fieldset для чекбоксів -->
-                            <legend style="font-size: 1.2rem; border-bottom: none; margin-bottom: 0.5rem;">Опції:</legend> <!-- Спрощена легенда для вкладеної групи -->
+
+                        <fieldset class="form-group">
+                            <legend style="font-size: 1.2rem; border-bottom: none; margin-bottom: 0.5rem;">Опції:</legend>
                             <div class="options-group">
                                 <div>
-                                    <input type="checkbox" id="ch1_id" name="ch1" value="agree_processing" checked required> 
+                                    <input type="checkbox" id="ch1_id" name="ch1" value="agree_processing" checked required>
                                     <label for="ch1_id" class="inline-label">Згода на обробку даних</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="ch2_id" name="ch2" value="subscribe_newsletter"> 
+                                    <input type="checkbox" id="ch2_id" name="ch2" value="subscribe_newsletter">
                                     <label for="ch2_id" class="inline-label">Підписка на розсилку</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="ch3_id" name="ch3" value="remember_me" checked> 
+                                    <input type="checkbox" id="ch3_id" name="ch3" value="remember_me" checked>
                                     <label for="ch3_id" class="inline-label">Запам'ятати мене</label>
                                 </div>
                             </div>
                         </fieldset>
 
-                        <fieldset class="form-group"> <!-- Fieldset для радіокнопок -->
+                        <fieldset class="form-group">
                             <legend style="font-size: 1.2rem; border-bottom: none; margin-bottom: 0.5rem;">Ваш вибір:</legend>
                              <div class="options-group">
                                 <div>
@@ -360,7 +356,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                        
+
                         <div class="form-group">
                             <label for="favcolor_id">Вибір улюбленого кольору:</label>
                             <input type="color" id="favcolor_id" name="favcolor" value="#e63946">
@@ -369,9 +365,9 @@
                             <label for="avatarfile_id">Завантажити файл (аватар):</label>
                             <input type="file" id="avatarfile_id" name="avatarfile" accept="image/*">
                         </div>
-                        
+
                         <input type="hidden" name="user_id" value="hidden_user_id_12345">
-                        
+
                         <div class="form-group">
                             <label for="readonly_field_id">Приклад поля тільки для читання:</label>
                             <input type="text" id="readonly_field_id" name="readonly_field" value="Це значення незмінне" readonly size="30">
